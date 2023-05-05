@@ -1,10 +1,10 @@
-import { FC } from "react";
+import Nav from "../nav/Nav";
 
-const App: FC = (): JSX.Element => {
+const App = (): JSX.Element => {
   return (
-    <main>
-      <h1>HELLO</h1>
-    </main>
+    <>
+      <Nav />
+    </>
   );
 };
 
