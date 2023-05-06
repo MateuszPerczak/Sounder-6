@@ -1,8 +1,9 @@
 import { ThemeProvider } from "@emotion/react";
+import { RouterProvider } from "react-router-dom";
 
 import useTheme from "@/hooks/useTheme";
+import { router } from "@/routes/routes";
 
-import App from "../app/App";
 import GlobalStyle from "../globalStyle/GlobalStyle";
 
 const AppProvider = (): JSX.Element => {
@@ -10,7 +11,7 @@ const AppProvider = (): JSX.Element => {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
-      <App />
+      <RouterProvider router={router} />
     </ThemeProvider>
   );
 };
