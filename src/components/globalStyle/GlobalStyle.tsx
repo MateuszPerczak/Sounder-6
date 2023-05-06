@@ -22,7 +22,7 @@ const GlobalStyle = (): JSX.Element => {
         body {
           display: flex;
           flex-direction: column;
-          font-family: "Dongle";
+          font-family: "Outfit", sans-serif;
           background: ${background};
           color: ${color};
           overflow-y: scroll;
@@ -44,12 +44,6 @@ const GlobalStyle = (): JSX.Element => {
         }
         ::-webkit-scrollbar-thumb:hover {
           background-color: ${scrollbarThumbHover};
-        }
-        @font-face {
-          font-family: "Dongle";
-          font-style: normal;
-          font-weight: normal;
-          src: local("Dongle"), url("./Dongle-Regular.woff") format("woff");
         }
       `}
     />
