@@ -1,7 +1,7 @@
 import type { Theme } from "@emotion/react";
 import { useEffect, useState } from "react";
 
-import themes, { ColorThemes } from "../themes/themes";
+import themes, { ColorThemes } from "../../themes/themes";
 
 type UpdateThemeProps = MediaQueryListEvent | MediaQueryList;
 

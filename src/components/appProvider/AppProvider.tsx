@@ -1,7 +1,7 @@
 import { ThemeProvider } from "@emotion/react";
 import { PropsWithChildren } from "react";
 
-import useTheme from "@/hooks/useTheme";
+import useTheme from "@/hooks/useTheme/useTheme";
 
 import GlobalStyle from "../globalStyle/GlobalStyle";
 
