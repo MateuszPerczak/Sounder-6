@@ -10,6 +10,10 @@ declare module "@emotion/react" {
     scrollbarThumbHover: Hex;
     nav: Hex;
     navBorder: Hex;
+    navButton: Hex;
     navButtonSelected: Hex;
+    navSearch: Hex;
+    navSearchSelected: Hex;
+    navSearchSelection: Hex;
   }
 }

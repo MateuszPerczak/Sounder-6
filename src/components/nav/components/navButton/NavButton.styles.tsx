@@ -10,16 +10,13 @@ const StyledNavButton = styled.div`
   border-radius: 4px;
   cursor: pointer;
   transition: background-color 200ms;
-  text-decoration: none;
   color: ${({ theme: { color } }): string => color};
+  background-color: ${({ theme: { navButton } }): string => navButton};
   .button-label {
     font-weight: 400;
     font-size: 12px;
   }
   &:hover {
-    background-color: ${({ theme: { navButtonSelected } }): string => navButtonSelected};
-  }
-  &.active {
     background-color: ${({ theme: { navButtonSelected } }): string => navButtonSelected};
   }
 `;

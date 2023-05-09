@@ -12,6 +12,7 @@ const GlobalStyle = (): JSX.Element => {
           box-sizing: border-box;
           margin: 0;
           padding: 0;
+          font-family: "Outfit", sans-serif;
           /* outline: 1px solid #0bd871aa; */
         }
         html,
@@ -22,7 +23,6 @@ const GlobalStyle = (): JSX.Element => {
         body {
           display: flex;
           flex-direction: column;
-          font-family: "Outfit", sans-serif;
           background: ${background};
           color: ${color};
           overflow-y: scroll;
