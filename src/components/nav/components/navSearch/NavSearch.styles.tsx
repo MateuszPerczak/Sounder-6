@@ -34,27 +34,3 @@ const StyledNavSearch = styled.div`
 `;
 
 export default StyledNavSearch;
-
-//   &:hover,
-//   &:active,
-//   &:focus-within {
-//     outline: 1px solid ${({ theme: { navButtonSelected } }): string => navButtonSelected};
-//   }
-//   &:focus-within > input {
-//     ::placeholder {
-//       color: gray;
-//     }
-//   }
-//   & > input {
-//     border: none;
-//     background-color: transparent;
-//     outline: none;
-//     color: ${({ theme: { color } }): string => color};
-//     width: 100%;
-//     height: 100%;
-//     font-size: 12px;
-//     ::placeholder {
-//       color: ${({ theme: { color } }): string => color};
-//       transition: color 200ms;
-//     }
-//   }

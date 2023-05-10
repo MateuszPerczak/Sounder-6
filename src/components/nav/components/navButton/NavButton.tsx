@@ -1,7 +1,7 @@
 import Icon from "@/components/icon/Icon";
 
 import StyledNavButton from "./NavButton.styles";
-import { NavButtonProps } from "./NavButton.types";
+import { type NavButtonProps } from "./NavButton.types";
 
 const NavButton = ({ label, onClick, ...rest }: NavButtonProps): JSX.Element => {
   return (

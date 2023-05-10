@@ -1,5 +1,5 @@
 import { ThemeProvider } from "@emotion/react";
-import { PropsWithChildren } from "react";
+import { type PropsWithChildren } from "react";
 
 import useTheme from "@/hooks/useTheme/useTheme";
 

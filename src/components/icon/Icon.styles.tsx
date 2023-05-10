@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 
-import { IconProps } from "./Icon.types";
+import { type IconProps } from "./Icon.types";
 
 const StyledIcon = styled.div<Omit<IconProps, "hex">>`
   font-family: "Segoe Fluent Icons";
