@@ -4,6 +4,7 @@ export type NavigationPage = {
   default?: true;
   content: JSX.Element;
   menu: JSX.Element;
+  label: string;
 };
 
 export type NavigationComponents = {

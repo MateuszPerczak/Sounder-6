@@ -22,9 +22,6 @@ export default defineConfig(() => {
       react(),
       electron({
         include: ["electron"],
-        transformOptions: {
-          sourcemap: true,
-        },
         plugins: [loadViteEnv()],
       }),
       renderer(),

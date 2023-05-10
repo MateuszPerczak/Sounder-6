@@ -6,8 +6,8 @@ import StyledNav from "./Nav.styles";
 import { type NavProps } from "./Nav.types";
 
 const Nav = ({ navigateTo, currentPageId }: NavProps): JSX.Element => {
-  const handleClick = (label: NavigationPageId): void => {
-    navigateTo(label);
+  const handleClick = (pageId: NavigationPageId): void => {
+    navigateTo(pageId);
   };
 
   return (
@@ -19,10 +19,19 @@ const Nav = ({ navigateTo, currentPageId }: NavProps): JSX.Element => {
         selected={currentPageId === "library"}
       />
       <NavSearch />
-      {/* <NavButton hex="&#xE721;" label="Search" /> */}
-      <NavButton hex="&#xE006;" label="Favorites" />
+      <NavButton
+        hex="&#xE006;"
+        label="Favorites"
+        onClick={(): void => handleClick("favorites")}
+        selected={currentPageId === "favorites"}
+      />
       <div className="nav-spacer" />
-      <NavButton hex="&#xF133;" label="Updates" />
+      {/* <NavButton
+        hex="&#xF133;"
+        label="Updates"
+        onClick={(): void => handleClick("updates")}
+        selected={currentPageId === "updates"}
+      /> */}
       <NavButton
         hex="&#xE713;"
         label="Settings"

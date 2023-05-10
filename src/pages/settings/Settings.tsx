@@ -1,5 +1,7 @@
+import Page from "@/components/page/Page";
+
 const Settings = (): JSX.Element => {
-  return <div>Settings</div>;
+  return <Page>Settings</Page>;
 };
 
 export default Settings;
