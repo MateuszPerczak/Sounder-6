@@ -7,13 +7,14 @@ import Nav from "../nav/Nav";
 
 const AppContent = (): JSX.Element => {
   const {
-    components: { content, menu },
+    components: { content },
     navigateTo,
+    currentPageId,
   } = useNavigation(navigationTemplate);
 
   return (
     <>
-      <Nav navigateTo={navigateTo} />
+      <Nav navigateTo={navigateTo} currentPageId={currentPageId} />
       <AnimatePresence mode="wait">{content}</AnimatePresence>
     </>
   );

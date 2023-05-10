@@ -27,9 +27,7 @@ export default defineConfig(() => {
         },
         plugins: [loadViteEnv()],
       }),
-      renderer({
-        nodeIntegration: false,
-      }),
+      renderer(),
       eslintPlugin(),
     ],
     clearScreen: false,

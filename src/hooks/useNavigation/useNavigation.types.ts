@@ -18,4 +18,5 @@ export type NavigateTo = (navigationPageId: NavigationPageId) => void;
 export type UseNavigation = (navigationTemplate: NavigationTemplate) => {
   components: NavigationComponents;
   navigateTo: NavigateTo;
+  currentPageId: NavigationPageId;
 };

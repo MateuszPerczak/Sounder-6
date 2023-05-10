@@ -5,7 +5,7 @@ import NavSearch from "./components/navSearch/NavSearch";
 import StyledNav from "./Nav.styles";
 import { type NavProps } from "./Nav.types";
 
-const Nav = ({ navigateTo }: NavProps): JSX.Element => {
+const Nav = ({ navigateTo, currentPageId }: NavProps): JSX.Element => {
   const handleClick = (label: NavigationPageId): void => {
     navigateTo(label);
   };
@@ -16,6 +16,7 @@ const Nav = ({ navigateTo }: NavProps): JSX.Element => {
         hex="&#xE1D3;"
         label="Library"
         onClick={(): void => handleClick("library")}
+        selected={currentPageId === "library"}
       />
       <NavSearch />
       {/* <NavButton hex="&#xE721;" label="Search" /> */}
@@ -26,6 +27,7 @@ const Nav = ({ navigateTo }: NavProps): JSX.Element => {
         hex="&#xE713;"
         label="Settings"
         onClick={(): void => handleClick("settings")}
+        selected={currentPageId === "settings"}
       />
     </StyledNav>
   );
