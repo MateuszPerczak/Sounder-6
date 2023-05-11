@@ -13,7 +13,7 @@ const GlobalStyle = (): JSX.Element => {
           margin: 0;
           padding: 0;
           font-family: "Outfit", sans-serif;
-          /* outline: 1px solid #0bd871aa; */
+          /* outline: 1px dotted #0bd871aa; */
         }
         html,
         body {
@@ -25,13 +25,13 @@ const GlobalStyle = (): JSX.Element => {
           flex-direction: column;
           background: ${background};
           color: ${color};
-          overflow-y: scroll;
-          overflow-x: hidden;
+          overflow: hidden;
           user-select: none;
         }
         #root {
           display: flex;
           flex: 1;
+          min-height: 0;
         }
         ::-webkit-scrollbar {
           width: 14px;

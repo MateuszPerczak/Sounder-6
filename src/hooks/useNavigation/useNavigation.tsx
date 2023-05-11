@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 import {
   type NavigateTo,
@@ -15,16 +15,19 @@ const useNavigation: UseNavigation = (navigationTemplate: NavigationTemplate) =>
     content: <></>,
   });
 
-  const navigateTo: NavigateTo = (navigationPageId: NavigationPageId) => {
-    if (navigationPageId === currentPageId) return;
-    if (!(navigationPageId in navigationTemplate)) return;
-    setCurrentPageId(navigationPageId);
-    const { menu, content } = navigationTemplate[navigationPageId];
-    setComponents({
-      menu,
-      content,
-    });
-  };
+  const navigateTo: NavigateTo = useCallback(
+    (navigationPageId: NavigationPageId) => {
+      if (navigationPageId === currentPageId) return;
+      if (!(navigationPageId in navigationTemplate)) return;
+      setCurrentPageId(navigationPageId);
+      const { menu, content } = navigationTemplate[navigationPageId];
+      setComponents({
+        menu,
+        content,
+      });
+    },
+    [currentPageId],
+  );
 
   useEffect(() => {
     navigateTo(
@@ -35,6 +38,8 @@ const useNavigation: UseNavigation = (navigationTemplate: NavigationTemplate) =>
         )
         .at(0) ?? "",
     );
+    // disabled dependency array due to one time execution purpose
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return {

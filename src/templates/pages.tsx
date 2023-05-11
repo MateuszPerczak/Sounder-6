@@ -1,7 +1,8 @@
 import { type NavigationTemplate } from "@/hooks/useNavigation/useNavigation.types";
 
-import Library from "./library/Library";
-import Settings from "./settings/Settings";
+import Library from "../pages/library/Library";
+import Playlist from "../pages/playlist/Playlist";
+import Settings from "../pages/settings/Settings";
 
 export const navigationTemplate: NavigationTemplate = {
   library: {
@@ -18,7 +19,7 @@ export const navigationTemplate: NavigationTemplate = {
   favorites: {
     label: "Favorites",
     menu: <div>Favorites</div>,
-    content: <div>Favorites content</div>,
+    content: <Playlist playlistId="favorites" />,
   },
   updates: {
     label: "Updates",

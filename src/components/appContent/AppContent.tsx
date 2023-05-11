@@ -1,21 +1,17 @@
 import { AnimatePresence } from "framer-motion";
 
 import { useNavigation } from "@/hooks";
-import { navigationTemplate } from "@/pages/pages";
+import { navigationTemplate } from "@/templates/pages";
 
 import Nav from "../nav/Nav";
 
 const AppContent = (): JSX.Element => {
-  const {
-    components: { content },
-    navigateTo,
-    currentPageId,
-  } = useNavigation(navigationTemplate);
+  useNavigation(navigationTemplate);
 
   return (
     <>
-      <Nav navigateTo={navigateTo} currentPageId={currentPageId} />
-      <AnimatePresence mode="wait">{content}</AnimatePresence>
+      <Nav />
+      <AnimatePresence mode="wait"></AnimatePresence>
     </>
   );
 };
