@@ -30,8 +30,9 @@ const GlobalStyle = (): JSX.Element => {
         }
         #root {
           display: flex;
+          flex-direction: column;
           flex: 1;
-          min-height: 0;
+          /* min-height: 0; */
         }
         ::-webkit-scrollbar {
           width: 14px;

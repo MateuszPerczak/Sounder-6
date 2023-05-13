@@ -8,22 +8,22 @@ export const navigationTemplate: NavigationTemplate = {
   library: {
     default: true,
     label: "Library",
-    menu: <div>Library</div>,
-    content: <Library />,
+    menu: () => <div>Library</div>,
+    content: Library,
   },
   settings: {
     label: "Settings",
-    menu: <div>Settings</div>,
-    content: <Settings />,
+    menu: () => <div>Settings</div>,
+    content: Settings,
   },
   favorites: {
     label: "Favorites",
-    menu: <div>Favorites</div>,
-    content: <Playlist playlistId="favorites" />,
+    menu: () => <div>Favorites</div>,
+    content: Playlist,
   },
   updates: {
     label: "Updates",
-    menu: <div>Updates</div>,
-    content: <div>Updates content</div>,
+    menu: () => <div>Updates</div>,
+    content: () => <div>Updates content</div>,
   },
 };

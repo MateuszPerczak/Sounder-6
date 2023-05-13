@@ -7,7 +7,6 @@ const Nav = (): JSX.Element => {
   // const handleClick = (pageId: NavigationPageId): void => {
   //
   // };
-
   return (
     <StyledNav>
       <NavButton hex="&#xE1D3;" label="Library" />
