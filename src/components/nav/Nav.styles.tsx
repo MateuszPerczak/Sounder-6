@@ -5,11 +5,15 @@ const StyledNav = styled.nav`
   flex-direction: column;
   width: 210px;
   height: 100%;
-  gap: 10px;
-  padding: 10px;
-  border-right: 1px solid ${({ theme: { navBorder } }): string => navBorder};
+  border-right: 1px solid ${({ theme: { border } }): string => border};
   .nav-label {
     font-size: 12px;
+    padding: 10px;
+  }
+  .nav-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
     padding: 10px;
   }
 `;

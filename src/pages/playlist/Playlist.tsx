@@ -1,9 +1,7 @@
 import Page from "@/components/page/Page";
 
-import type { PlaylistProps } from "./Playlist.types";
-
-const Playlist = ({ playlistId }: PlaylistProps): JSX.Element => {
-  return <Page>Playlist {playlistId}</Page>;
+const Playlist = (): JSX.Element => {
+  return <Page>Playlist </Page>;
 };
 
 export default Playlist;

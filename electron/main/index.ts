@@ -2,7 +2,7 @@ import { join } from "node:path";
 
 import { app, BrowserWindow, ipcMain, Menu } from "electron";
 
-import { AppContent, Environment } from "./index.types";
+import { type AppContent, Environment } from "./index.types";
 
 process.env.DIST_ELECTRON = join(__dirname, "..");
 process.env.DIST = join(process.env.DIST_ELECTRON, "..", "dist");
@@ -34,6 +34,7 @@ const initApp = async (): Promise<void> => {
   window.on("ready-to-show", window.show);
 
   configApp();
+  initApi();
 };
 
 const initMainWindow = (): BrowserWindow => {
@@ -46,10 +47,17 @@ const initMainWindow = (): BrowserWindow => {
     },
     center: true,
     show: false,
-    width: 850,
-    height: 550,
+    width: 1000,
+    height: 600,
     minWidth: 600,
     minHeight: 500,
+  });
+};
+
+const initApi = (): void => {
+  ipcMain.on("show-dev-tools", ({ sender }) => {
+    const window = BrowserWindow.fromWebContents(sender);
+    window && window.webContents.openDevTools();
   });
 };
 

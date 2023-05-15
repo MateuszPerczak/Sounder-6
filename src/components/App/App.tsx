@@ -1,11 +1,18 @@
-import AppContent from "../appContent/AppContent";
-import AppProvider from "../appProvider/AppProvider";
+import { ThemeProvider } from "@emotion/react";
+import { RouterProvider } from "react-router-dom";
+
+import useTheme from "@/hooks/useTheme/useTheme";
+import { router } from "@/routes/routes";
+
+import GlobalStyle from "../globalStyle/GlobalStyle";
 
 const App = (): JSX.Element => {
+  const theme = useTheme();
   return (
-    <AppProvider>
-      <AppContent />
-    </AppProvider>
+    <ThemeProvider theme={theme}>
+      <GlobalStyle />
+      <RouterProvider router={router} />
+    </ThemeProvider>
   );
 };
 
