@@ -16,7 +16,7 @@ const Nav = (): JSX.Element => {
       </div>
       <NavPlaylists />
       <div className="nav-container">
-        {/* <NavLink hex="&#xF133;" label="Updates" to="updates" /> */}
+        <NavLink hex="&#xF133;" label="Updates" to="updates" />
         <NavLink hex="&#xE713;" label="Settings" to="settings" />
       </div>
     </StyledNav>

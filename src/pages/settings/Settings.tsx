@@ -1,54 +1,10 @@
+import Icon from "@/components/icon/Icon";
 import Page from "@/components/page/Page";
 
 const Settings = (): JSX.Element => {
   return (
     <Page>
-      <p>dsds</p>
-      <p>dsds</p>
-      <p>dsds</p>
-      <p>dsds</p>
-      <p>dsds</p>
-      <p>dsds</p>
-      <p>dsds</p>
-      <p>dsds</p>
-      <p>dsds</p>
-      <p>dsds</p>
-      <p>dsds</p>
-      <p>dsds</p>
-      <p>dsds</p>
-      <p>dsds</p>
-      <p>dsds</p>
-      <p>dsds</p>
-      <p>dsds</p>
-      <p>dsds</p>
-      <p>dsds</p>
-      <p>dsds</p>
-      <p>dsds</p>
-      <p>dsds</p>
-      <p>dsds</p>
-      <p>dsds</p>
-      <p>dsds</p>
-      <p>dsds</p>
-      <p>dsds</p>
-      <p>dsds</p>
-      <p>dsds</p>
-      <p>dsds</p>
-      <p>dsds</p>
-      <p>dsds</p>
-      <p>dsds</p>
-      <p>dsds</p>
-      <p>dsds</p>
-      <p>dsds</p>
-      <p>dsds</p>
-      <p>dsds</p>
-      <p>dsds</p>
-      <p>dsds</p>
-      <p>dsds</p>
-      <p>dsds</p>
-      <p>dsds</p>
-      <p>dsds</p>
-      <p>dsds</p>
-      <p>dsds</p>
+      <Icon hex="&#xE115;" size={128} />
     </Page>
   );
 };

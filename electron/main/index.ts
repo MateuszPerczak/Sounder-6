@@ -1,6 +1,6 @@
 import { join } from "node:path";
 
-import { app, BrowserWindow, ipcMain, Menu } from "electron";
+import { app, BrowserWindow, dialog, ipcMain, Menu } from "electron";
 
 import { type AppContent, Environment } from "./index.types";
 
@@ -58,6 +58,13 @@ const initApi = (): void => {
   ipcMain.on("show-dev-tools", ({ sender }) => {
     const window = BrowserWindow.fromWebContents(sender);
     window && window.webContents.openDevTools();
+  });
+
+  ipcMain.on("open-folder-picker", () => {
+    dialog.showOpenDialog({
+      title: "Select a folder",
+      properties: ["openDirectory"],
+    });
   });
 };
 

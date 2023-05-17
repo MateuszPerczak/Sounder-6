@@ -1,10 +1,12 @@
 import { lazy } from "react";
-import { createHashRouter } from "react-router-dom";
+import { createBrowserRouter } from "react-router-dom";
 
 import Root from "@/components/root/Root";
 
 const Library = lazy(() => import("../pages/library/Library"));
 const Settings = lazy(() => import("../pages/settings/Settings"));
+const Playlist = lazy(() => import("../pages/playlist/Playlist"));
+const Updates = lazy(() => import("../pages/updates/Updates"));
 
 // const Home = lazy(() => import("../pages/Home"));
 // const Blog = lazy(() => import("../pages/Blog"));
@@ -17,7 +19,7 @@ const Settings = lazy(() => import("../pages/settings/Settings"));
 //   });
 // });
 
-export const router = createHashRouter([
+export const router = createBrowserRouter([
   {
     path: "/",
     element: <Root />,
@@ -30,6 +32,14 @@ export const router = createHashRouter([
       {
         element: <Settings />,
         path: "settings",
+      },
+      {
+        element: <Playlist />,
+        path: "playlist/:id",
+      },
+      {
+        element: <Updates />,
+        path: "updates",
       },
       { path: "*", element: <></> },
     ],

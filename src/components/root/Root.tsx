@@ -1,10 +1,13 @@
 import { Suspense, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 import AnimatedOutlet from "../animatedOutlet/AnimatedOutlet";
 import Controls from "../controls/Controls";
 import Nav from "../nav/Nav";
 
 const Root = (): JSX.Element => {
+  const navigate = useNavigate();
+
   useEffect(() => {
     const handleKeyPress = (e: KeyboardEvent): void => {
       console.log(e.key);
@@ -17,6 +20,10 @@ const Root = (): JSX.Element => {
     window.addEventListener("keydown", handleKeyPress);
 
     return (): void => window.removeEventListener("keypress", handleKeyPress);
+  }, []);
+
+  useEffect(() => {
+    navigate("/library");
   }, []);
 
   return (
