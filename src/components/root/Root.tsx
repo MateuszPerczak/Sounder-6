@@ -10,7 +10,6 @@ const Root = (): JSX.Element => {
 
   useEffect(() => {
     const handleKeyPress = (e: KeyboardEvent): void => {
-      console.log(e.key);
       if (e.key === "F12") {
         e.preventDefault();
         window.api.showDevTools();

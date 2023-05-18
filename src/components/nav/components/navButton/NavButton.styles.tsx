@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 
 import type { NavButtonProps } from "./NavButton.types";
 
-const StyledNavButton = styled.div<Pick<NavButtonProps, "selected">>`
+const StyledNavButton = styled.button<Pick<NavButtonProps, "selected">>`
   display: flex;
   align-items: center;
   gap: 10px;
@@ -11,6 +11,7 @@ const StyledNavButton = styled.div<Pick<NavButtonProps, "selected">>`
   font-size: 14px;
   border-radius: 4px;
   cursor: pointer;
+  border: none;
   transition: background-color 200ms;
   color: ${({ theme: { color } }): string => color};
   background-color: ${({ theme: { navButton, navButtonSelected }, selected }): string =>

@@ -15,6 +15,9 @@ const GlobalStyle = (): JSX.Element => {
           font-family: "Outfit", sans-serif;
           /* outline: 1px dotted #0bd871aa; */
         }
+        *:focus-visible {
+          outline: 1px solid ${color};
+        }
         html,
         body {
           height: 100%;
