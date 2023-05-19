@@ -8,7 +8,6 @@ const StyledPage = styled(motion.section)`
   justify-content: center;
   flex: 1;
   overflow-y: scroll;
-  font-size: 2rem;
 `;
 
 export default StyledPage;

@@ -2,5 +2,6 @@ import { contextBridge, ipcRenderer } from "electron";
 
 contextBridge.exposeInMainWorld("api", {
   showDevTools: (): void => ipcRenderer.send("show-dev-tools"),
-  openFolderPicker: (): void => ipcRenderer.send("open-folder-picker"),
+  openFolderPicker: (): Promise<string[] | undefined> =>
+    ipcRenderer.invoke("open-folder-picker"),
 });

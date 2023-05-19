@@ -3,7 +3,7 @@ import Page from "@/components/page/Page";
 
 const Library = (): JSX.Element => {
   return (
-    <Page>
+    <Page name="Library">
       <Icon hex="&#xE1D3;" size={128} />
     </Page>
   );

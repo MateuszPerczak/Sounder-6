@@ -2,7 +2,7 @@ import { join } from "node:path";
 
 import { app, BrowserWindow, dialog, ipcMain, Menu } from "electron";
 
-import { type AppContent, Environment } from "./index.types";
+import { type AppContent, Environment } from "./main.types";
 
 process.env.DIST_ELECTRON = join(__dirname, "..");
 process.env.DIST = join(process.env.DIST_ELECTRON, "..", "dist");
@@ -38,7 +38,7 @@ const initApp = async (): Promise<void> => {
 };
 
 const initMainWindow = (): BrowserWindow => {
-  const preload = join(__dirname, "..", "preload", "index.js");
+  const preload = join(__dirname, "..", "preload", "preload.js");
   return new BrowserWindow({
     title: "",
     icon: join(process.env.PUBLIC, "favicon.ico"),
@@ -55,16 +55,21 @@ const initMainWindow = (): BrowserWindow => {
 };
 
 const initApi = (): void => {
+  // console.log(app.getPath("userData"));
+
   ipcMain.on("show-dev-tools", ({ sender }) => {
     const window = BrowserWindow.fromWebContents(sender);
     window && window.webContents.openDevTools();
   });
 
-  ipcMain.on("open-folder-picker", () => {
-    dialog.showOpenDialog({
+  ipcMain.handle("open-folder-picker", async () => {
+    const { canceled, filePaths } = await dialog.showOpenDialog({
       title: "Select a folder",
       properties: ["openDirectory"],
     });
+
+    if (canceled) return;
+    return filePaths;
   });
 };
 
@@ -75,7 +80,6 @@ const configApp = (): void => {
 const appContent: AppContent = {
   development: (window: BrowserWindow) => {
     window.loadURL(url);
-    window.webContents.openDevTools();
   },
   production: (window: BrowserWindow) => {
     window.loadFile(indexHtml);

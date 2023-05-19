@@ -10,7 +10,6 @@ const Playlist = (): JSX.Element => {
   return (
     <Page>
       <Icon hex={id === "favorites" ? "\uEB51" : "\uE102"} size={128} />
-      <span>{id}</span>
     </Page>
   );
 };
