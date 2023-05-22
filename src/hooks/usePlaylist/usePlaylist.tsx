@@ -17,7 +17,12 @@ export const usePlaylist: UsePlaylist = () => {
         ...prevStore,
         playlists: {
           ...prevStore.playlists,
-          [id]: { id, name: "New Playlist", icon: "\uE93C", songs: [] },
+          [id]: {
+            id,
+            name: `New Playlist #${Object.keys(prevStore.playlists).length}`,
+            icon: "\uE93C",
+            songs: [],
+          },
         },
       };
     });

@@ -20,6 +20,10 @@ const StyledNavSearch = styled.div`
     font-size: 12px;
     ::placeholder {
       color: ${({ theme: { color } }): string => color};
+      transition: color 200ms;
+    }
+    &:focus::placeholder {
+      color: transparent;
     }
     ::selection {
       background-color: ${({ theme: { color } }): string => color};
