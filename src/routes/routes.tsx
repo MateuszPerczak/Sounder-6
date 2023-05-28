@@ -13,9 +13,9 @@ const Updates = lazy(() => import("../pages/updates/Updates"));
 // const Dev = lazy(() => import("../pages/Dev"));
 // const PageNotFound = lazy(() => import("../components/pageNotFound/PageNotFound"));
 
-// const Blog = lazy(() => {
+// const Library = lazy(() => {
 //   return new Promise((resolve) => {
-//     setTimeout(() => resolve(import("../pages/Blog")), 3000);
+//     setTimeout(() => resolve(import("../pages/library/Library")), 30000);
 //   });
 // });
 

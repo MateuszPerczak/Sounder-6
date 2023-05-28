@@ -17,6 +17,7 @@ const Page = ({ children }: PropsWithChildren<PageProps>): JSX.Element => {
         stiffness: 100,
         damping: 5,
       }}
+      layoutScroll
     >
       {children}
     </StyledPage>
