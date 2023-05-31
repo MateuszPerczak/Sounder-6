@@ -1,4 +1,4 @@
-import { usePlaylist } from "@/hooks/usePlaylist/usePlaylist";
+import { usePlaylist } from "@/hooks";
 
 import NavButton from "./components/navButton/NavButton";
 import NavLink from "./components/navLink/NavLink";

@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { useParams, useSearchParams } from "react-router-dom";
 
+import Badge from "@/components/badge/Badge";
 import Icon from "@/components/icon/Icon";
 import Page from "@/components/page/Page";
 import Store from "@/contexts/store/Store";
@@ -20,10 +21,28 @@ const Playlist = (): JSX.Element => {
 
   const playlist = id && playlists[id];
 
+  const name =
+    (id === "favorites" ? "Favorites" : playlist && playlist.name) ?? "Unknown";
+
   // const playlistData = getPlaylist(id);
   return (
-    <Page>
-      <Icon hex={id === "favorites" ? "\uEB51" : "\uE93C"} size={128} />
+    <Page
+      name={name}
+      toolbar={
+        <>
+          {word && <Badge hex="&#xE094;" label={`Showing results for "${word}"`} />}
+          <Badge hex="&#xE189;" label="84" />
+          <Badge hex="&#xE121;" label="2h 30m" />
+        </>
+      }
+      content={<></>}
+    />
+  );
+};
+
+export default Playlist;
+{
+  /* 
 
       {playlist && playlist.name}
       {word && (
@@ -31,9 +50,5 @@ const Playlist = (): JSX.Element => {
           <Icon hex={"\uE11A"} size={14} />
           <span>Searching {word}</span>
         </p>
-      )}
-    </Page>
-  );
-};
-
-export default Playlist;
+      )} */
+}

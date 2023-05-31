@@ -2,7 +2,7 @@ import { ThemeProvider } from "@emotion/react";
 import { RouterProvider } from "react-router-dom";
 
 import Store from "@/contexts/store/Store";
-import { useStore } from "@/hooks/useStore/useStore";
+import { useStore } from "@/hooks";
 import useTheme from "@/hooks/useTheme/useTheme";
 import { router } from "@/routes/routes";
 

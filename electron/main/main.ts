@@ -49,8 +49,8 @@ const initMainWindow = (): BrowserWindow => {
     show: false,
     width: 1000,
     height: 600,
-    minWidth: 600,
-    minHeight: 500,
+    minWidth: 910,
+    minHeight: 570,
   });
 };
 

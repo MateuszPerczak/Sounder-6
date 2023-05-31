@@ -1,3 +1,9 @@
+import type { ReactNode } from "react";
+
+import type { IconProps } from "../icon/Icon.types";
+
 export interface PageProps {
-  lol?: string;
+  name: string;
+  toolbar?: ReactNode;
+  content: ReactNode;
 }

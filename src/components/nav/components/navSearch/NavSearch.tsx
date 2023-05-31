@@ -1,18 +1,18 @@
-import { type ChangeEvent, useEffect, useRef } from "react";
+import { type ChangeEvent, useMemo } from "react";
 import { useSearchParams } from "react-router-dom";
-import { debounceTime, fromEvent } from "rxjs";
 
 import Icon from "@/components/icon/Icon";
-import useDebounce from "@/hooks/useDeboune/useDebounce";
+import { useDebounce } from "@/hooks";
 
 import StyledNavSearch from "./NavSearch.styles";
 
 const NavSearch = (): JSX.Element => {
-  const [_search, setSearch] = useSearchParams();
-
+  const { 1: setSearch } = useSearchParams();
   const [debouncedSearch, setDebouncedSearch] = useDebounce<string>(200, "");
 
-  useEffect(() => setSearch({ search: debouncedSearch }), [setSearch, debouncedSearch]);
+  // just update the search param when the debounced search value changes
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  useMemo(() => setSearch({ search: debouncedSearch }), [debouncedSearch]);
 
   return (
     <StyledNavSearch>
@@ -22,8 +22,8 @@ const NavSearch = (): JSX.Element => {
         type="text"
         placeholder="Search"
         spellCheck="false"
-        onChange={(event: ChangeEvent<HTMLInputElement>): void =>
-          setDebouncedSearch(event.target.value)
+        onChange={({ target: { value } }: ChangeEvent<HTMLInputElement>): void =>
+          setDebouncedSearch(value.trim().substring(0, 64).normalize())
         }
       />
     </StyledNavSearch>

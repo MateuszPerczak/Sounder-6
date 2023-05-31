@@ -1,7 +1,7 @@
 import { Suspense, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-import { useApi } from "@/hooks/useApi/useApi";
+import { useApi } from "@/hooks";
 
 import AnimatedOutlet from "../animatedOutlet/AnimatedOutlet";
 import Controls from "../controls/Controls";
@@ -27,7 +27,6 @@ const Root = (): JSX.Element => {
   useEffect(() => {
     navigate("/library");
   }, []);
-
   return (
     <>
       <main>

@@ -6,7 +6,7 @@ import Store from "@/contexts/store/Store";
 
 import type { UsePlaylist } from "./usePlaylist.types";
 
-export const usePlaylist: UsePlaylist = () => {
+const usePlaylist: UsePlaylist = () => {
   const navigate = useNavigate();
   const { store, setStore } = useContext(Store);
 
@@ -34,3 +34,5 @@ export const usePlaylist: UsePlaylist = () => {
     playlists: Object.values(store.playlists),
   };
 };
+
+export default usePlaylist;

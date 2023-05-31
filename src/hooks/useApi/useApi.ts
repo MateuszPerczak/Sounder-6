@@ -1,4 +1,4 @@
-export const useApi = (): Window["api"] => {
+const useApi = (): Window["api"] => {
   // const promiseResolver = () => {
   //   return new Promise((resolve) => {
 
@@ -7,3 +7,5 @@ export const useApi = (): Window["api"] => {
 
   return window.api;
 };
+
+export default useApi;
