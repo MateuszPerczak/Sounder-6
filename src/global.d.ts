@@ -1,3 +1,6 @@
 interface Window {
-  api: { showDevTools: () => void; openFolderPicker: () => string[] };
+  api: {
+    showDevTools: () => void;
+    openFolderPicker: () => string[];
+  };
 }

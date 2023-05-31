@@ -7,17 +7,6 @@ import Page from "@/components/page/Page";
 
 import StyledSettings from "./Settings.styles";
 
-const StyledCard = styled.div`
-  background-color: ${({ theme: { contrast } }): string => contrast};
-  border-radius: 4px;
-  padding: 10px;
-`;
-const StyledToolbar = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 10px;
-`;
-
 const StyledButton = styled.div`
   display: inline-flex;
   align-items: center;
@@ -37,64 +26,6 @@ const StyledButton = styled.div`
   }
 `;
 
-const StyledBadge = styled.div`
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 5px;
-  padding: 0 10px;
-  height: 35px;
-  border-radius: 4px;
-  background-color: ${({ theme: { contrast } }): string => contrast};
-  font-size: 12px;
-`;
-
-const StyledWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-`;
-const StyledS = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 10px;
-  height: 50px;
-  border-radius: 4px;
-  background-color: #252525;
-  margin-bottom: 10px;
-`;
-
-const StyledA = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 5px;
-  font-size: 12px;
-  .artist {
-    font-size: 10px;
-  }
-`;
-const StyledC = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex: 0 0 30px;
-`;
-
-const StyledSong = ({ index, style }: any): JSX.Element => {
-  return (
-    <StyledS style={style}>
-      <StyledC>
-        <Icon hex="&#xEC4F;" />
-      </StyledC>
-      <StyledA>
-        <span>Marcepan</span>
-        <span className="artist">Sanah {index}</span>
-      </StyledA>
-    </StyledS>
-  );
-};
 const Settings = (): JSX.Element => {
   const [search] = useSearchParams();
 
@@ -115,11 +46,7 @@ const Settings = (): JSX.Element => {
           </StyledButton>
         </>
       }
-      content={
-        <>
-          <StyledWrapper></StyledWrapper>
-        </>
-      }
+      content={<StyledSettings></StyledSettings>}
     />
   );
 };

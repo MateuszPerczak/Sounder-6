@@ -1,6 +1,6 @@
 import { join } from "node:path";
 
-import { app, BrowserWindow, dialog, ipcMain, Menu } from "electron";
+import { app, BrowserWindow, dialog, ipcMain, Menu, MenuItem } from "electron";
 
 import { type AppContent, Environment } from "./main.types";
 
