@@ -7,19 +7,19 @@ const Menu = (props: MenuProps): JSX.Element => {
     <StyledMenu {...props}>
       <div className="menu-content">
         <div className="menu-item">
-          <Icon hex="&#xE104;" size={14} />
+          <Icon icon="&#xE104;" size={14} />
           <span>Edit</span>
         </div>
         <div className="menu-item">
-          <Icon hex="&#xE16F;" size={14} />
+          <Icon icon="&#xE16F;" size={14} />
           <span>Copy</span>
         </div>
         <div className="menu-item">
-          <Icon hex="&#xE72D;" size={14} />
+          <Icon icon="&#xE72D;" size={14} />
           <span>Share</span>
         </div>
         <div className="menu-item">
-          <Icon hex="&#xE107;" size={14} />
+          <Icon icon="&#xE107;" size={14} />
           <span>Remove</span>
         </div>
       </div>

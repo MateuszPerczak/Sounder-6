@@ -15,7 +15,7 @@ const StyledMenu = styled.menu<Pick<MenuProps, "x" | "y">>`
     padding: 5px 0;
     background-color: ${({ theme: { background } }): string => background};
     border-radius: 4px;
-    border: 1px solid ${({ theme: { border } }): string => border};
+    border: 1px solid ${({ theme: { stroke } }): string => stroke};
     overflow: hidden;
     transform: translateY(-100%);
     animation: slideIn 300ms cubic-bezier(0.2, 0.7, 0, 0.99) forwards;
@@ -27,10 +27,9 @@ const StyledMenu = styled.menu<Pick<MenuProps, "x" | "y">>`
     gap: 10px;
     padding: 5px 10px;
     font-size: 14px;
-    transition: background-color 200ms;
+    transition: background-color 150ms;
     &:hover {
-      background-color: ${({ theme: { navButtonSelected } }): string =>
-        navButtonSelected};
+      background-color: ${({ theme: { fillHover } }): string => fillHover};
     }
     @keyframes slideIn {
       from {

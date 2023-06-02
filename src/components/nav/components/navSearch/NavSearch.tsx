@@ -1,7 +1,8 @@
-import { type ChangeEvent, useMemo } from "react";
+import { type ChangeEvent, useLayoutEffect } from "react";
 import { useSearchParams } from "react-router-dom";
 
 import Icon from "@/components/icon/Icon";
+import { Icons } from "@/components/icon/Icon.types";
 import { useDebounce } from "@/hooks";
 
 import StyledNavSearch from "./NavSearch.styles";
@@ -12,11 +13,11 @@ const NavSearch = (): JSX.Element => {
 
   // just update the search param when the debounced search value changes
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  useMemo(() => setSearch({ search: debouncedSearch }), [debouncedSearch]);
+  useLayoutEffect(() => setSearch({ search: debouncedSearch }), [debouncedSearch]);
 
   return (
     <StyledNavSearch>
-      <Icon hex="&#xE721;" />
+      <Icon icon={Icons.Search} />
       <input
         className="search-input"
         type="text"

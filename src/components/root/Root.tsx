@@ -27,6 +27,7 @@ const Root = (): JSX.Element => {
   useEffect(() => {
     navigate("/library");
   }, []);
+
   return (
     <>
       <main>

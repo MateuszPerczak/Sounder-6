@@ -1,20 +1,21 @@
 import { AnimatePresence } from "framer-motion";
 
-import StyledPage, { StyledPageContent } from "./Page.styles";
+import StyledPage from "./Page.styles";
 import type { PageProps } from "./Page.types";
 
-const Page = ({ toolbar, name, content }: PageProps): JSX.Element => {
+const Page = ({ menu, name, content }: PageProps): JSX.Element => {
   return (
     <StyledPage>
-      {toolbar && (
+      {menu && (
         <menu className="page-toolbar">
           <span className="toolbar-name">{name}</span>
           <div className="toolbar-content">
-            <AnimatePresence initial={false}>{toolbar}</AnimatePresence>
+            <AnimatePresence initial={false}>{menu}</AnimatePresence>
           </div>
         </menu>
       )}
-      <StyledPageContent
+      <div className="page-content">{content}</div>
+      {/* <StyledPageContent
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{
@@ -25,7 +26,7 @@ const Page = ({ toolbar, name, content }: PageProps): JSX.Element => {
         }}
       >
         {content}
-      </StyledPageContent>
+      </StyledPageContent> */}
     </StyledPage>
   );
 };

@@ -2,7 +2,7 @@ import { css, Global, type Theme, useTheme } from "@emotion/react";
 import { memo } from "react";
 
 const GlobalStyle = (): JSX.Element => {
-  const { background, color, scrollbarThumbHover, scrollbarThumb }: Theme = useTheme();
+  const { background, textPrimary, fillStrong }: Theme = useTheme();
   return (
     <Global
       styles={css`
@@ -16,7 +16,7 @@ const GlobalStyle = (): JSX.Element => {
           /* outline: 1px dotted #0bd871aa; */
         }
         *:focus-visible {
-          outline: 1px solid ${color};
+          outline: 1px solid ${textPrimary};
         }
         html,
         body {
@@ -27,7 +27,7 @@ const GlobalStyle = (): JSX.Element => {
           display: flex;
           flex-direction: column;
           background: ${background};
-          color: ${color};
+          color: ${textPrimary};
           overflow: hidden;
           user-select: none;
         }
@@ -47,12 +47,12 @@ const GlobalStyle = (): JSX.Element => {
         }
         ::-webkit-scrollbar-thumb {
           border: 4px solid transparent;
-          background-color: ${scrollbarThumb};
+          background-color: ${fillStrong};
           background-clip: padding-box;
           border-radius: 10px;
         }
         ::-webkit-scrollbar-thumb:hover {
-          background-color: ${scrollbarThumbHover};
+          background-color: ${fillStrong};
         }
       `}
     />

@@ -5,7 +5,7 @@ const StyledNav = styled.nav`
   flex-direction: column;
   width: 210px;
   height: 100%;
-  border-right: 1px solid ${({ theme: { border } }): string => border};
+  border-right: 1px solid ${({ theme: { stroke } }): string => stroke};
   .nav-label {
     font-size: 12px;
     padding: 10px;

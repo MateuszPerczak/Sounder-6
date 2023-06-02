@@ -1,7 +1,6 @@
 import styled from "@emotion/styled";
-import { motion } from "framer-motion";
 
-const StyledPage = styled(motion.article)`
+const StyledPage = styled.article`
   display: flex;
   flex-direction: column;
   flex: 1;
@@ -10,11 +9,11 @@ const StyledPage = styled(motion.article)`
     align-items: center;
     justify-content: space-between;
     flex: 0 0 50px;
-    border-bottom: 1px solid ${({ theme: { border } }): string => border};
+    border-bottom: 1px solid ${({ theme: { stroke } }): string => stroke};
     padding: 0 10px;
   }
   .toolbar-name {
-    font-size: 20px;
+    font-size: 18px;
   }
   .toolbar-content {
     display: flex;
@@ -22,13 +21,25 @@ const StyledPage = styled(motion.article)`
     justify-content: center;
     gap: 10px;
   }
-`;
-
-export const StyledPageContent = styled(motion.section)`
-  flex: 1;
-  overflow-x: hidden;
-  overflow-y: scroll;
-  padding: 10px 2px 10px 10px;
+  .page-content {
+    display: flex;
+    flex: 1;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    padding: 10px 2px 10px 10px;
+    animation: page-load 300ms cubic-bezier(0.2, 0.7, 0, 0.99) forwards;
+    will-change: opacity, transform;
+  }
+  @keyframes page-load {
+    from {
+      transform: translateY(40px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0px);
+      opacity: 1;
+    }
+  }
 `;
 
 export default StyledPage;

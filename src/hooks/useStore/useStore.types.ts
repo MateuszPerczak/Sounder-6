@@ -1,5 +1,7 @@
 import type { Dispatch, SetStateAction } from "react";
 
+import type { Icons } from "@/components/icon/Icon.types";
+
 export type UseStore = () => {
   store: StoreState;
   setStore: Dispatch<SetStateAction<StoreState>>;
@@ -12,7 +14,7 @@ export type StoreState = {
 export type Playlist = {
   id: string;
   name: string;
-  icon: string;
+  icon: Icons;
   songs: Song[];
 };
 

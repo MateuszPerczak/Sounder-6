@@ -8,17 +8,22 @@ const StyledNavButton = styled.button`
   padding: 0 10px;
   font-size: 14px;
   border-radius: 4px;
-  cursor: pointer;
   border: none;
-  transition: background-color 200ms;
-  color: ${({ theme: { color } }): string => color};
-  background-color: ${({ theme: { navButton } }): string => navButton};
+  color: ${({ theme: { textPrimary } }): string => textPrimary};
+  background-color: ${({ theme: { background } }): string => background};
+  border: 1px solid ${({ theme: { background } }): string => background};
+  transition: background-color 150ms, border 150ms;
   .button-label {
     font-weight: 400;
     font-size: 12px;
   }
   &:hover {
-    background-color: ${({ theme: { navButtonSelected } }): string => navButtonSelected};
+    background-color: ${({ theme: { fillHover } }): string => fillHover};
+    border: 1px solid ${({ theme: { strokeHover } }): string => strokeHover};
+  }
+  &:active {
+    background-color: ${({ theme: { fillActive } }): string => fillActive};
+    border: 1px solid ${({ theme: { strokeActive } }): string => strokeActive};
   }
 `;
 

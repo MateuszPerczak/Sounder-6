@@ -1,7 +1,8 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { v4 } from "uuid";
 
+import { Icons } from "@/components/icon/Icon.types";
 import Store from "@/contexts/store/Store";
 
 import type { UsePlaylist } from "./usePlaylist.types";
@@ -20,7 +21,7 @@ const usePlaylist: UsePlaylist = () => {
           [id]: {
             id,
             name: `New Playlist #${Object.keys(prevStore.playlists).length}`,
-            icon: "\uE93C",
+            icon: Icons.Playlist,
             songs: [],
           },
         },

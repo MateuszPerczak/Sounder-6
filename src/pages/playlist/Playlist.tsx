@@ -2,9 +2,9 @@ import { useContext } from "react";
 import { useParams, useSearchParams } from "react-router-dom";
 
 import Badge from "@/components/badge/Badge";
+import { Icons } from "@/components/icon/Icon.types";
 import Page from "@/components/page/Page";
 import Store from "@/contexts/store/Store";
-import { type Playlist } from "@/hooks/useStore/useStore.types";
 
 import type { PlaylistProps } from "./Playlist.types";
 
@@ -25,11 +25,13 @@ const Playlist = (): JSX.Element => {
   return (
     <Page
       name={name}
-      toolbar={
+      menu={
         <>
-          {search && <Badge hex="&#xE094;" label={`Showing results for "${search}"`} />}
-          <Badge hex="&#xE189;" label="84" />
-          <Badge hex="&#xE121;" label="2h 30m" />
+          {search && (
+            <Badge icon={Icons.Search} label={`Showing results for "${search}"`} />
+          )}
+          <Badge icon={Icons.Audio} label="84" />
+          <Badge icon={Icons.Clock} label="2h 30m" />
         </>
       }
       content={<></>}

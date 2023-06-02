@@ -1,11 +1,25 @@
+import Button from "@/components/button/Button";
 import Icon from "@/components/icon/Icon";
+import { Icons } from "@/components/icon/Icon.types";
 import Page from "@/components/page/Page";
+
+import StyledUpdates from "./Updates.styles";
 
 const Updates = (): JSX.Element => {
   return (
-    <Page>
-      <Icon hex="&#xE118;" size={128} />
-    </Page>
+    <Page
+      name="Updates"
+      menu={
+        <>
+          <Button icon={Icons.Refresh} label="Check for updates" />
+        </>
+      }
+      content={
+        <StyledUpdates>
+          <Icon icon={Icons.Download} size={128} />
+        </StyledUpdates>
+      }
+    />
   );
 };
 

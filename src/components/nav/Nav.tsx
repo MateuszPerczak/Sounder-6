@@ -1,5 +1,6 @@
 import { usePlaylist } from "@/hooks";
 
+import { Icons } from "../icon/Icon.types";
 import NavButton from "./components/navButton/NavButton";
 import NavLink from "./components/navLink/NavLink";
 import NavPlaylists from "./components/navPlaylists/NavPlaylists";
@@ -11,16 +12,16 @@ const Nav = (): JSX.Element => {
   return (
     <StyledNav>
       <div className="nav-container">
-        <NavLink hex="&#xE1D3;" label="Library" to="library" />
+        <NavLink icon={Icons.Library} label="Library" to="library" />
         <NavSearch />
-        <NavLink hex="&#xE006;" label="Favorites" to="playlist/favorites" />
+        <NavLink icon={Icons.Heart} label="Favorites" to="playlist/favorites" />
         <span className="nav-label">Playlists</span>
-        <NavButton hex="&#xE109;" label="Add playlist" onClick={createPlaylist} />
+        <NavButton icon={Icons.Add} label="Add playlist" onClick={createPlaylist} />
       </div>
       <NavPlaylists playlists={playlists} />
       <div className="nav-container">
-        <NavLink hex="&#xF133;" label="Updates" to="updates" />
-        <NavLink hex="&#xE713;" label="Settings" to="settings" />
+        <NavLink icon={Icons.GiftBox} label="Updates" to="updates" />
+        <NavLink icon={Icons.Settings} label="Settings" to="settings" />
       </div>
     </StyledNav>
   );
