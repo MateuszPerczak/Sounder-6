@@ -18,21 +18,8 @@ declare module "@emotion/react" {
     strokeDisabled: Hex;
     strokeStrong: Hex;
     background: Hex;
+    backgroundSecondary: Hex;
+    backgroundStrong: Hex;
     smoke: Hex;
-    // background: Hex;
-    // color: Hex;
-    // border: Hex;
-    // contrast: Hex;
-    // scrollbarThumb: Hex;
-    // scrollbarThumbHover: Hex;
-    // nav: Hex;
-    // navButton: Hex;
-    // navButtonSelected: Hex;
-    // navSearch: Hex;
-    // navSearchSelected: Hex;
-    // navSearchSelection: Hex;
-    // button: Hex;
-    // buttonHover: Hex;
-    // buttonDisabled: Hex;
   }
 }

@@ -20,4 +20,7 @@ export enum Icons {
   SaveLocal = "\uE78C",
   Download = "\uE896",
   Refresh = "\uE72C",
+  Import = "\uE8B5",
+  Rename = "\uE8AC",
+  Certificate = "\uEB95",
 }

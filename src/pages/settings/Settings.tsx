@@ -22,6 +22,7 @@ const Settings = (): JSX.Element => {
             <Badge icon={Icons.Search} label={`Showing results for "${search}"`} />
           )}
           <Button icon={Icons.Save} label="Save" disabled />
+          <Button icon={Icons.Import} label="Import" />
         </>
       }
       content={

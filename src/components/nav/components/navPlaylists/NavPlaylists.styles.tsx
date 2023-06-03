@@ -5,8 +5,12 @@ const StyledNavPlaylists = styled.div`
   flex-direction: column;
   flex: 1;
   gap: 10px;
-  overflow-y: scroll;
-  padding: 0 0 0 10px;
+  overflow-y: hidden;
+  &:hover {
+    overflow-y: scroll;
+    padding: 0 0 0 10px;
+  }
+  padding: 0 10px;
 `;
 
 export default StyledNavPlaylists;
