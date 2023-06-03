@@ -12,7 +12,6 @@ const StyledNavLink = styled(NavLink)`
   cursor: default;
   color: ${({ theme: { textPrimary } }): string => textPrimary};
   background-color: ${({ theme: { background } }): string => background};
-  border: 1px solid ${({ theme: { background } }): string => background};
   text-decoration: none;
   -webkit-user-drag: none;
   transition: background-color 150ms, border 150ms;
@@ -22,15 +21,12 @@ const StyledNavLink = styled(NavLink)`
   }
   &.active {
     background-color: ${({ theme: { fill } }): string => fill};
-    border: 1px solid ${({ theme: { stroke } }): string => stroke};
   }
   &:hover {
     background-color: ${({ theme: { fillHover } }): string => fillHover};
-    border: 1px solid ${({ theme: { strokeHover } }): string => strokeHover};
   }
   &:active {
     background-color: ${({ theme: { fillActive } }): string => fillActive};
-    border: 1px solid ${({ theme: { strokeActive } }): string => strokeActive};
   }
 `;
 
