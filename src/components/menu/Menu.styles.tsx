@@ -6,13 +6,14 @@ const StyledMenu = styled.menu<Pick<MenuProps, "x" | "y">>`
   position: fixed;
   top: min(${({ y }): string => `${y}px`}, calc(100vh - 134px));
   left: min(${({ x }): string => `${x}px`}, calc(100vw - 110px));
-
+  width: 150px;
   /* top: ${({ y }): string => `min(${y}px, calc(100vh - 100px))`};
   left: ${({ x }): string => `min(${x}px, calc(100vw - 100px))`}; */
   /* top: ${({ y }): string => `${y}px`};
   left: ${({ x }): string => `${x}px`}; */
   overflow: hidden;
   z-index: 10;
+  border-radius: 4px;
   .menu-content {
     display: flex;
     flex-direction: column;
@@ -23,7 +24,8 @@ const StyledMenu = styled.menu<Pick<MenuProps, "x" | "y">>`
     border: 1px solid ${({ theme: { stroke } }): string => stroke};
     overflow: hidden;
     transform: translateY(-100%);
-    animation: slideIn 300ms cubic-bezier(0.2, 0.7, 0, 0.99) forwards;
+    animation: menu-load 300ms cubic-bezier(0.2, 0.7, 0, 0.99) forwards;
+
     will-change: transform;
   }
   .menu-item {
@@ -31,7 +33,7 @@ const StyledMenu = styled.menu<Pick<MenuProps, "x" | "y">>`
     align-items: center;
     gap: 10px;
     padding: 0 10px;
-    flex: 0 0 35px;
+    flex: 0 0 25px;
     font-size: 14px;
     border-radius: 4px;
     transition: background-color 150ms;
@@ -41,13 +43,13 @@ const StyledMenu = styled.menu<Pick<MenuProps, "x" | "y">>`
     &:active {
       background-color: ${({ theme: { fillActive } }): string => fillActive};
     }
-    @keyframes slideIn {
-      from {
-        transform: translateY(-100%);
-      }
-      to {
-        transform: translateY(0);
-      }
+  }
+  @keyframes menu-load {
+    from {
+      transform: translateY(-100%);
+    }
+    to {
+      transform: translateY(0);
     }
   }
 `;

@@ -9,11 +9,7 @@ const Updates = (): JSX.Element => {
   return (
     <Page
       name="Updates"
-      menu={
-        <>
-          <Button icon={Icons.Refresh} label="Check for updates" />
-        </>
-      }
+      menu={<></>}
       content={
         <StyledUpdates>
           <Icon icon={Icons.Download} size={128} />

@@ -19,10 +19,15 @@ const Settings = (): JSX.Element => {
       menu={
         <>
           {search && (
-            <Badge icon={Icons.Search} label={`Showing results for "${search}"`} />
+            <Badge
+              icon={Icons.Search}
+              label={`Showing results for "${search}"`}
+              transition
+            />
           )}
           <Button icon={Icons.Save} label="Save" disabled />
-          <Button icon={Icons.Import} label="Import" />
+          {/* <Button icon={Icons.Import} label="Import" /> */}
+          <Button icon={Icons.Refresh} label="Check for updates" />
         </>
       }
       content={

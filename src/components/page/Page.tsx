@@ -8,7 +8,7 @@ const Page = ({ menu, name, content }: PageProps): JSX.Element => {
     <StyledPage>
       {menu && (
         <menu className="page-toolbar">
-          <span className="toolbar-name">{name}</span>
+          {name && <span className="toolbar-name">{name}</span>}
           <div className="toolbar-content">
             <AnimatePresence initial={false}>{menu}</AnimatePresence>
           </div>

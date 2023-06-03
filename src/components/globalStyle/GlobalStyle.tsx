@@ -43,7 +43,7 @@ const GlobalStyle = (): JSX.Element => {
           min-height: 0;
         }
         ::-webkit-scrollbar {
-          width: 10px;
+          width: 14px;
         }
         ::-webkit-scrollbar-thumb {
           border: 4px solid transparent;

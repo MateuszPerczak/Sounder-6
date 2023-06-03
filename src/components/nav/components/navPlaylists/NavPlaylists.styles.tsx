@@ -11,6 +11,9 @@ const StyledNavPlaylists = styled.div`
     padding: 0 0 0 10px;
   }
   padding: 0 10px;
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
 `;
 
 export default StyledNavPlaylists;
