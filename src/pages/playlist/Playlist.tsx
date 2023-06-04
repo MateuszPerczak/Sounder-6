@@ -1,10 +1,10 @@
-import { useContext } from "react";
 import { useParams, useSearchParams } from "react-router-dom";
 
 import Badge from "@/components/badge/Badge";
+import Button from "@/components/button/Button";
+import Icon from "@/components/icon/Icon";
 import { Icons } from "@/components/icon/Icon.types";
 import Page from "@/components/page/Page";
-import Store from "@/contexts/store/Store";
 
 import type { PlaylistProps } from "./Playlist.types";
 
@@ -14,27 +14,26 @@ const Playlist = (): JSX.Element => {
 
   const search = params.get("search");
 
-  const {
-    store: { playlists },
-  } = useContext(Store);
+  // const playlist = id && playlists[id];
 
-  const playlist = id && playlists[id];
-
-  const name =
-    (id === "favorites" ? "Favorites" : playlist && playlist.name) ?? "Unknown";
   return (
     <Page
-      name={name}
+      name={id}
       menu={
         <>
           {search && (
             <Badge icon={Icons.Search} label={`Showing results for "${search}"`} />
           )}
+          <Button icon={Icons.Play} />
           <Badge icon={Icons.Audio} label="84" />
           <Badge icon={Icons.Clock} label="2h 30m" />
         </>
       }
-      content={<></>}
+      content={
+        <>
+          <Icon icon={Icons.Playlist} size={128} />
+        </>
+      }
     />
   );
 };

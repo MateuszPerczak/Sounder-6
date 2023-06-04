@@ -14,7 +14,7 @@ const StyledButton = styled.button`
   background-color: ${({ theme: { fill } }): string => fill};
   color: ${({ theme: { textPrimary } }): string => textPrimary};
   border: 1px solid ${({ theme: { stroke } }): string => stroke};
-  transition: background-color 150ms, border 150ms;
+  transition: background-color 150ms, border 150ms, color 150ms;
   &:disabled {
     color: ${({ theme: { textDisabled } }): string => textDisabled};
     background-color: ${({ theme: { fillDisabled } }): string => fillDisabled};
@@ -27,6 +27,9 @@ const StyledButton = styled.button`
   &:active:not([disabled]) {
     background-color: ${({ theme: { fillActive } }): string => fillActive};
     border: 1px solid ${({ theme: { strokeActive } }): string => strokeActive};
+  }
+  &:focus-visible {
+    outline: 1px solid ${({ theme: { textPrimary } }): string => textPrimary};
   }
 `;
 

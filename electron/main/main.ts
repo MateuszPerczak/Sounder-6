@@ -1,6 +1,6 @@
 import { join } from "node:path";
 
-import { app, BrowserWindow, dialog, ipcMain, Menu, MenuItem } from "electron";
+import { app, BrowserWindow, dialog, ipcMain, Menu } from "electron";
 
 import { type AppContent, Environment } from "./main.types";
 
@@ -65,7 +65,7 @@ const initApi = (): void => {
   ipcMain.handle("open-folder-picker", async () => {
     const { canceled, filePaths } = await dialog.showOpenDialog({
       title: "Select a folder",
-      properties: ["openDirectory"],
+      properties: ["openDirectory", "multiSelections"],
     });
 
     if (canceled) return;

@@ -20,7 +20,7 @@ const Nav = (): JSX.Element => {
       </div>
       <NavPlaylists playlists={playlists} />
       <div className="nav-container">
-        <NavLink icon={Icons.GiftBox} label="Updates" to="updates" />
+        {/* <NavLink icon={Icons.GiftBox} label="Updates" to="updates" /> */}
         <NavLink icon={Icons.Settings} label="Settings" to="settings" />
       </div>
     </StyledNav>

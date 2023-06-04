@@ -1,9 +1,8 @@
 import { Suspense, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 
 import { useApi } from "@/hooks";
 
-import AnimatedOutlet from "../animatedOutlet/AnimatedOutlet";
 import Controls from "../controls/Controls";
 import Nav from "../nav/Nav";
 
@@ -33,18 +32,10 @@ const Root = (): JSX.Element => {
       <main>
         <Nav />
         <Suspense fallback={<></>}>
-          <AnimatedOutlet />
+          <Outlet />
         </Suspense>
       </main>
       <Controls />
-      {/* <main>
-        <Nav {...rest} />
-
-        <AnimatePresence mode="wait">
-          <Page />
-        </AnimatePresence>
-      </main>
-      <Controls /> */}
     </>
   );
 };

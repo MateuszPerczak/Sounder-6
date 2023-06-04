@@ -13,6 +13,7 @@ export enum Icons {
   Menu = "\uE712",
   Add = "\uE710",
   Folder = "\uE8B7",
+  AddFolder = "\uE8F4",
   Audio = "\uE8D6",
   Clock = "\uE121",
   Playlist = "\uE93C",
@@ -23,4 +24,5 @@ export enum Icons {
   Import = "\uE8B5",
   Rename = "\uE8AC",
   Certificate = "\uEB95",
+  Play = "\uE768",
 }

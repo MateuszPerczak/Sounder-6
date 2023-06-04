@@ -8,7 +8,7 @@ import { useDebounce } from "@/hooks";
 import StyledNavSearch from "./NavSearch.styles";
 
 const NavSearch = (): JSX.Element => {
-  const { 1: setSearch } = useSearchParams();
+  const [, setSearch] = useSearchParams();
   const [debouncedSearch, setDebouncedSearch] = useDebounce<string>(200, "");
 
   // just update the search param when the debounced search value changes
@@ -23,6 +23,7 @@ const NavSearch = (): JSX.Element => {
         type="text"
         placeholder="Search"
         spellCheck="false"
+        maxLength={64}
         onChange={({ target: { value } }: ChangeEvent<HTMLInputElement>): void =>
           setDebouncedSearch(value.trim().substring(0, 64).normalize())
         }
