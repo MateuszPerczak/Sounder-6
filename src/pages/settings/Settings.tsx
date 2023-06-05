@@ -7,10 +7,13 @@ import Icon from "@/components/icon/Icon";
 import { Icons } from "@/components/icon/Icon.types";
 import Page from "@/components/page/Page";
 import { useApi } from "@/hooks";
+import useSettings from "@/stores/settings/settings";
 
 import StyledSettings from "./Settings.styles";
 
 const Settings = (): JSX.Element => {
+  const settings = useSettings((state) => state.settings);
+
   const [params] = useSearchParams();
 
   const { openFolderPicker } = useApi();

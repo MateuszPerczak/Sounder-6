@@ -5,6 +5,7 @@ import Button from "@/components/button/Button";
 import Icon from "@/components/icon/Icon";
 import { Icons } from "@/components/icon/Icon.types";
 import Page from "@/components/page/Page";
+import usePlaylists from "@/stores/playlists/playlists";
 
 import type { PlaylistProps } from "./Playlist.types";
 
@@ -14,11 +15,13 @@ const Playlist = (): JSX.Element => {
 
   const search = params.get("search");
 
-  // const playlist = id && playlists[id];
+  const { getPlaylist } = usePlaylists(({ getPlaylist }) => ({ getPlaylist }));
+
+  const playlist = (id && getPlaylist(id)) || { name: "Playlist not found" };
 
   return (
     <Page
-      name={id}
+      name={playlist.name}
       menu={
         <>
           {search && (
