@@ -13,7 +13,8 @@ const StyledPage = styled.article`
     padding: 0 10px;
   }
   .toolbar-name {
-    font-size: 18px;
+    font-size: 20px;
+    font-weight: 300;
   }
   .toolbar-content {
     display: flex;

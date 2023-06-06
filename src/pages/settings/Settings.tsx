@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useSearchParams } from "react-router-dom";
+import { shallow } from "zustand/shallow";
 
 import Badge from "@/components/badge/Badge";
 import Button from "@/components/button/Button";
@@ -9,20 +10,22 @@ import Page from "@/components/page/Page";
 import { useApi } from "@/hooks";
 import useSettings from "@/stores/settings/settings";
 
+import Panel from "./components/panel/Panel";
 import StyledSettings from "./Settings.styles";
 
 const Settings = (): JSX.Element => {
-  const settings = useSettings((state) => state.settings);
+  const { settings, addFolders } = useSettings(
+    (state) => ({ settings: state.settings, addFolders: state.addFolders }),
+    shallow,
+  );
 
   const [params] = useSearchParams();
 
   const { openFolderPicker } = useApi();
 
-  const [state, setState] = useState<string[]>([]);
   const openFolder = async (): Promise<void> => {
     const folders = await openFolderPicker();
-    folders && setState(folders);
-    console.log(folders);
+    folders && addFolders(folders);
   };
 
   const search = params.get("search");
@@ -47,7 +50,12 @@ const Settings = (): JSX.Element => {
       }
       content={
         <StyledSettings>
-          <Icon icon={Icons.Settings} size={128} />
+          <Panel />
+          <Panel />
+          <Panel />
+          <Panel />
+          <Panel />
+          <Panel />
         </StyledSettings>
       }
     />

@@ -18,6 +18,7 @@ declare module "@emotion/react" {
     strokeDisabled: Hex;
     strokeStrong: Hex;
     background: Hex;
+    backgroundLayer: Hex;
     backgroundSecondary: Hex;
     backgroundStrong: Hex;
     smoke: Hex;
