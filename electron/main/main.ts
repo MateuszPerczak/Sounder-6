@@ -1,3 +1,5 @@
+import "v8-compile-cache";
+
 import { join } from "node:path";
 
 import { app, BrowserWindow, dialog, ipcMain, Menu } from "electron";

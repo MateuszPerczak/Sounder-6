@@ -25,4 +25,6 @@ export enum Icons {
   Rename = "\uE8AC",
   Certificate = "\uEB95",
   Play = "\uE768",
+  ChevronUp = "\uE70E",
+  ChevronDown = "\uE70D",
 }

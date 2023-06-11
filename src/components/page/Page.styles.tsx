@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { motion } from "framer-motion";
 
 const StyledPage = styled.article`
   display: flex;
@@ -22,25 +23,16 @@ const StyledPage = styled.article`
     justify-content: center;
     gap: 10px;
   }
-  .page-content {
-    display: flex;
-    flex: 1;
-    overflow-x: hidden;
-    overflow-y: scroll;
-    padding: 10px 2px 10px 10px;
-    animation: page-load 300ms cubic-bezier(0.2, 0.7, 0, 0.99) forwards;
-    will-change: opacity, transform;
-  }
-  @keyframes page-load {
-    from {
-      transform: translateY(40px);
-      opacity: 0;
-    }
-    to {
-      transform: translateY(0px);
-      opacity: 1;
-    }
-  }
+`;
+
+export const StyledPageContent = styled(motion.section)`
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  padding: 10px 2px 10px 10px;
 `;
 
 export default StyledPage;

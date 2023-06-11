@@ -1,6 +1,6 @@
 import { AnimatePresence } from "framer-motion";
 
-import StyledPage from "./Page.styles";
+import StyledPage, { StyledPageContent } from "./Page.styles";
 import type { PageProps } from "./Page.types";
 
 const Page = ({ menu, name, content }: PageProps): JSX.Element => {
@@ -14,19 +14,13 @@ const Page = ({ menu, name, content }: PageProps): JSX.Element => {
           </div>
         </menu>
       )}
-      <div className="page-content">{content}</div>
-      {/* <StyledPageContent
-        initial={{ opacity: 0, y: 20 }}
+      <StyledPageContent
+        initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{
-          type: "spring",
-          mass: 0.05,
-          stiffness: 100,
-          damping: 5,
-        }}
+        transition={{ type: "tween", duration: 0.2, ease: [0.2, 0.7, 0, 0.99] }}
       >
         {content}
-      </StyledPageContent> */}
+      </StyledPageContent>
     </StyledPage>
   );
 };
