@@ -11,10 +11,8 @@ const StyledExpander = styled.div`
   }
   .expander-content {
     display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    flex: 1 1 100px;
-    padding: 10px;
+    flex-direction: column;
+    flex: 1 1 50px;
     z-index: 1;
     background-color: ${({ theme: { backgroundLayer } }): string => backgroundLayer};
     border: 1px solid ${({ theme: { strokeStrong } }): string => strokeStrong};
@@ -22,11 +20,23 @@ const StyledExpander = styled.div`
     border-radius: 0 0 4px 4px;
     animation: expander-load 300ms cubic-bezier(0.2, 0.7, 0, 0.99) forwards;
   }
-  .header-text {
+  .expander-content > *:not(:last-child) {
+    border-bottom: 1px solid ${({ theme: { strokeStrong } }): string => strokeStrong};
+  }
+  .header-children {
     display: flex;
     align-items: center;
     font-size: 14px;
-    gap: 10px;
+    gap: 15px;
+  }
+  .header-labels {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .header-description {
+    font-size: 10px;
+    color: ${({ theme: { textSecondary } }): string => textSecondary};
   }
   @keyframes expander-load {
     from {
@@ -40,7 +50,7 @@ const StyledExpander = styled.div`
   }
 `;
 
-export const StyledExpanderHeader = styled.div<{ isExpanded: boolean }>`
+export const StyledExpanderHeader = styled.button<{ isExpanded: boolean }>`
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -48,6 +58,7 @@ export const StyledExpanderHeader = styled.div<{ isExpanded: boolean }>`
   flex: 0 0 50px;
   padding: 10px 15px;
   z-index: 2;
+  color: ${({ theme: { textPrimary } }): string => textPrimary};
   background-color: ${({ theme: { backgroundLayer } }): string => backgroundLayer};
   border: 1px solid ${({ theme: { strokeStrong } }): string => strokeStrong};
   border-radius: ${({ isExpanded }): string => (isExpanded ? "4px 4px 0 0" : "4px")};

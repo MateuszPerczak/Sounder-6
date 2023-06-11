@@ -1,4 +1,4 @@
-import type { Playlist } from "../useStore/useStore.types";
+import type { Playlist } from "@/stores/playlists/playlists.types";
 
 export type UsePlaylist = () => {
   createPlaylist: () => void;

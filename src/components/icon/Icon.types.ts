@@ -27,4 +27,6 @@ export enum Icons {
   Play = "\uE768",
   ChevronUp = "\uE70E",
   ChevronDown = "\uE70D",
+  CheckMark = "\uE73E",
+  Cancel = "\uE711",
 }
