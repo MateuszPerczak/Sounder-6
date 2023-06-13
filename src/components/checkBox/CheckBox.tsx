@@ -5,11 +5,17 @@ import { Icons } from "../icon/Icon.types";
 import StyledCheckBox from "./CheckBox.styles";
 import type { CheckBoxProps } from "./CheckBox.types";
 
-const CheckBox = ({ label, checked, disabled }: CheckBoxProps): JSX.Element => {
+const CheckBox = ({ label, checked, disabled, onChange }: CheckBoxProps): JSX.Element => {
   const [isChecked, setIsChecked] = useState(checked);
 
   const toggleChecked = (): void => {
-    !disabled && setIsChecked((wasChecked) => !wasChecked);
+    !disabled &&
+      setIsChecked((wasChecked) => {
+        if (typeof onChange === "function") {
+          onChange(!wasChecked);
+        }
+        return !wasChecked;
+      });
   };
 
   return (

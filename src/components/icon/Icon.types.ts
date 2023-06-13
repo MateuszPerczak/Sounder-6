@@ -29,4 +29,7 @@ export enum Icons {
   ChevronDown = "\uE70D",
   CheckMark = "\uE73E",
   Cancel = "\uE711",
+  HardDrive = "\uEDA2",
+  Color = "\uE790",
+  Info = "\uE946",
 }

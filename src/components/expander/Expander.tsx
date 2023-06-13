@@ -20,7 +20,7 @@ const Expander = ({
     <StyledExpander>
       <StyledExpanderHeader onClick={toggleExpanded} isExpanded={isExpanded}>
         <div className="header-children">
-          <Icon size={16} {...rest} />
+          <Icon {...rest} />
           <div className="header-labels">
             {label && <span>{label}</span>}
             {description && <span className="header-description">{description}</span>}
