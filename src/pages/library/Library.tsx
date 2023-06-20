@@ -14,12 +14,26 @@ const Song = styled.div`
   padding: 0 5px;
   flex: 0 0 50px;
   border-radius: 4px;
-  border: 1px solid ${({ theme: { stroke } }): string => stroke};
-  background-color: ${({ theme: { fill } }): string => fill};
+  background-color: ${({ theme: { backgroundLayer } }): string => backgroundLayer};
+  border: 1px solid ${({ theme: { strokeStrong } }): string => strokeStrong};
 `;
 
 const Library = (): JSX.Element => {
   const [params] = useSearchParams();
+
+  // const openFile = async (): Promise<void> => {
+  //   const files = (await window.api.openFilePicker()) as Uint8Array;
+  //   if (!files) return;
+
+  //   const blob = new Blob([files], { type: "audio/wav" });
+  //   const url = window.URL.createObjectURL(blob);
+  //   console.log(url);
+  //   setSrc(url);
+  //   // const test = new Audio(url);
+  //   // setAudio(test);
+
+  //   console.log(files);
+  // };
 
   const search = params.get("search");
 
@@ -45,9 +59,7 @@ const Library = (): JSX.Element => {
           <>
             <StyledLibrary>
               {Array.from({ length: 10 }, (_, index) => (
-                <Song key={index}>
-                  <Button icon={Icons.Play} />
-                </Song>
+                <Song key={index}></Song>
               ))}
             </StyledLibrary>
           </>

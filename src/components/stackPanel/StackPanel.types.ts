@@ -7,4 +7,5 @@ export type StackPanelProps = {
   gap?: CSSProperties["gap"];
   alignItems?: CSSProperties["alignItems"];
   justifyContent?: CSSProperties["justifyContent"];
+  padding?: CSSProperties["padding"];
 };

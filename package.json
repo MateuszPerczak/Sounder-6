@@ -1,8 +1,8 @@
 {
-  "name": "Sounder",
+  "name": "sounder",
   "version": "1.0.0",
   "main": "dist-electron/main/main.js",
-  "description": "Vite React Electron.",
+  "description": "Music player written in ts",
   "author": "Mateusz Perczak",
   "license": "MIT",
   "private": true,
@@ -48,6 +48,7 @@
     "node": "^14.18.0 || >=16.0.0"
   },
   "dependencies": {
+    "audio-decode": "^2.1.3",
     "v8-compile-cache": "^2.3.0"
   }
 }

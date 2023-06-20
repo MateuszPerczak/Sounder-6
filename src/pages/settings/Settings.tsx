@@ -2,6 +2,7 @@ import { useSearchParams } from "react-router-dom";
 
 import Badge from "@/components/badge/Badge";
 import Button from "@/components/button/Button";
+import ComboBox from "@/components/comboBox/ComboBox";
 import Expander from "@/components/expander/Expander";
 import { Icons } from "@/components/icon/Icon.types";
 import Page from "@/components/page/Page";
@@ -31,8 +32,18 @@ const Settings = (): JSX.Element => {
       }
       content={
         <>
-          <Expander icon={Icons.Folder} label="Folders"></Expander>
-          <Expander icon={Icons.Color} label="Theme"></Expander>
+          <Expander icon={Icons.Folder} label="Folders">
+            <StackPanel padding={10} justifyContent="flex-end" gap={10}>
+              <ComboBox
+                options={[]}
+                selectedOption=""
+                onChange={(): string => ""}
+                disabled
+              />
+              <ComboBox options={[]} selectedOption="" onChange={(): string => ""} />
+            </StackPanel>
+          </Expander>
+          {/* <Expander icon={Icons.Color} label="Theme"></Expander>
           <Expander icon={Icons.HardDrive} label="File indexing"></Expander>
           <Expander icon={Icons.Search} label="Search"></Expander>
           <Expander
@@ -41,7 +52,7 @@ const Settings = (): JSX.Element => {
             description="Learn more about this app"
           >
             <StackPanel gap={10} flex={1}></StackPanel>
-          </Expander>
+          </Expander> */}
         </>
       }
     />

@@ -13,6 +13,12 @@ const StyledStackPanel = styled.div<StackPanelProps>`
     alignItems ?? "flex-start"};
   justify-content: ${({ justifyContent }): StackPanelProps["justifyContent"] =>
     justifyContent ?? "flex-start"};
+  padding: ${({ padding }): StackPanelProps["padding"] => {
+    if (typeof padding === "number") {
+      return `${padding}px`;
+    }
+    return padding ?? 0;
+  }};
 `;
 
 export default StyledStackPanel;

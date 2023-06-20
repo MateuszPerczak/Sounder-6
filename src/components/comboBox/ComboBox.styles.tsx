@@ -1,11 +1,13 @@
 import styled from "@emotion/styled";
 
 const StyledComboBox = styled.div`
+  position: relative;
+
   button {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 5px;
+    gap: 10px;
     min-width: 35px;
     padding: 8px 10px;
     border-radius: 4px;
@@ -31,6 +33,15 @@ const StyledComboBox = styled.div`
   }
   button:focus-visible {
     outline: 1px solid ${({ theme: { textPrimary } }): string => textPrimary};
+  }
+  menu {
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 0;
+    right: 0;
+    background-color: ${({ theme: { fill } }): string => fill};
+    border: 1px solid ${({ theme: { stroke } }): string => stroke};
+    border-radius: 4px;
   }
 `;
 

@@ -3,6 +3,7 @@ import "v8-compile-cache";
 import { join } from "node:path";
 
 import { app, BrowserWindow, dialog, ipcMain, Menu } from "electron";
+import { readFileSync } from "fs";
 
 import { type AppContent, Environment } from "./main.types";
 
@@ -69,10 +70,22 @@ const initApi = (): void => {
       title: "Select a folder",
       properties: ["openDirectory", "multiSelections"],
     });
-
     if (canceled) return;
     return filePaths;
   });
+
+  // ipcMain.handle("open-file-picker", async () => {
+  //   const { canceled, filePaths } = await dialog.showOpenDialog({
+  //     title: "Select a folder",
+  //     properties: ["openFile"],
+  //     filters: [{ name: "Music files", extensions: ["mp3", "ogg", "flac", "wav"] }],
+  //   });
+  //   if (canceled) return;
+
+  //   const fileBytes = readFileSync(filePaths[0]);
+  //   console.log(fileBytes.buffer);
+  //   return fileBytes;
+  // });
 };
 
 const configApp = (): void => {
