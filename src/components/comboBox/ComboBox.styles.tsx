@@ -2,7 +2,6 @@ import styled from "@emotion/styled";
 
 const StyledComboBox = styled.div`
   position: relative;
-
   button {
     display: inline-flex;
     align-items: center;
@@ -42,6 +41,7 @@ const StyledComboBox = styled.div`
     background-color: ${({ theme: { fill } }): string => fill};
     border: 1px solid ${({ theme: { stroke } }): string => stroke};
     border-radius: 4px;
+    z-index: 1;
   }
 `;
 
