@@ -35,13 +35,21 @@ const StyledComboBox = styled.div`
   }
   menu {
     position: absolute;
-    top: calc(100% + 10px);
+    top: calc(100% + 5px);
     left: 0;
     right: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 5px;
     background-color: ${({ theme: { fill } }): string => fill};
     border: 1px solid ${({ theme: { stroke } }): string => stroke};
     border-radius: 4px;
-    z-index: 1;
+    box-shadow: 0 3.2px 7.2px 0 rgba(0, 0, 0, 0.132), 0 0.6px 1.8px 0 rgba(0, 0, 0, 0.108);
+    z-index: 2;
+  }
+  .menu-item {
+    padding: 8px 10px;
   }
 `;
 

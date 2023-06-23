@@ -1,6 +1,11 @@
 export interface ComboBoxProps {
-  options: unknown[];
-  selectedOption: unknown;
+  options: ComboBoxOption[];
+  selectedOption: ComboBoxOption["value"];
   disabled?: boolean;
-  onChange: (option: unknown) => void;
+  onChange: (option: ComboBoxOption) => void;
 }
+
+export type ComboBoxOption = {
+  name: string;
+  value: string | number | boolean;
+};
