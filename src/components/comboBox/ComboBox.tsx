@@ -5,9 +5,9 @@ import { Icons } from "../icon/Icon.types";
 import StyledComboBox from "./ComboBox.styles";
 import type { ComboBoxOption, ComboBoxProps } from "./ComboBox.types";
 
-const ComboBox = ({ options, disabled }: ComboBoxProps): JSX.Element => {
+const ComboBox = ({ options, disabled, width, onChange }: ComboBoxProps): JSX.Element => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  const [selectedOption, setSelectedOption] = useState<string>("");
+  const [selectedOption, setSelectedOption] = useState<ComboBoxOption | null>(null);
   const ref = useRef<HTMLDivElement>(null);
 
   const toggleIsOpen = (): void => {
@@ -16,6 +16,8 @@ const ComboBox = ({ options, disabled }: ComboBoxProps): JSX.Element => {
 
   const selectOption = (option: ComboBoxOption): void => {
     setIsOpen(false);
+    setSelectedOption(option);
+    typeof onChange === "function" && onChange(option.value);
   };
 
   useEffect(() => {
@@ -31,17 +33,22 @@ const ComboBox = ({ options, disabled }: ComboBoxProps): JSX.Element => {
   }, [ref]);
 
   return (
-    <StyledComboBox ref={ref}>
-      <button onClick={toggleIsOpen} disabled={disabled}>
-        <span>Select option</span>
+    <StyledComboBox ref={ref} width={width}>
+      <button onClick={toggleIsOpen} disabled={disabled} className="combobox-button">
+        <span>{selectedOption?.name ?? "Select option"}</span>
         <Icon icon={isOpen ? Icons.ChevronUp : Icons.ChevronDown} size={12} />
       </button>
       {isOpen && (
         <menu>
-          <button className="menu-item">1</button>
-          <button className="menu-item">2</button>
-          <button className="menu-item">3</button>
-          <button className="menu-item">4</button>
+          {options.map((option, index) => (
+            <button
+              className="menu-item"
+              key={`combo-option-${index}`}
+              onClick={(): void => selectOption(option)}
+            >
+              {option.name}
+            </button>
+          ))}
         </menu>
       )}
     </StyledComboBox>
