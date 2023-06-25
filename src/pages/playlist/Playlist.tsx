@@ -25,7 +25,11 @@ const Playlist = (): JSX.Element => {
       menu={
         <>
           {search && (
-            <Badge icon={Icons.Search} label={`Showing results for "${search}"`} />
+            <Badge
+              icon={Icons.Search}
+              label={`Showing results for "${search}"`}
+              transition
+            />
           )}
           <Button icon={Icons.Play} />
           <Badge icon={Icons.Audio} label="84" />

@@ -39,6 +39,12 @@ const StyledComboBox = styled.div<{ width?: number }>`
     top: calc(100% + 5px);
     left: 0;
     right: 0;
+    box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0.132), 0 0px 0px 0 rgba(0, 0, 0, 0.108);
+    z-index: 2;
+    overflow: hidden;
+    animation: menu-shadow 300ms cubic-bezier(0.2, 0.7, 0, 0.99) forwards;
+  }
+  .menu-items-wrapper {
     display: flex;
     flex-direction: column;
     gap: 5px;
@@ -46,8 +52,8 @@ const StyledComboBox = styled.div<{ width?: number }>`
     background-color: ${({ theme: { fill } }): string => fill};
     border: 1px solid ${({ theme: { stroke } }): string => stroke};
     border-radius: 4px;
-    box-shadow: 0 3.2px 7.2px 0 rgba(0, 0, 0, 0.132), 0 0.6px 1.8px 0 rgba(0, 0, 0, 0.108);
-    z-index: 2;
+    transform: translateY(-100%);
+    animation: menu-open 300ms cubic-bezier(0.2, 0.7, 0, 0.99) forwards;
   }
   .menu-item {
     display: flex;
@@ -63,6 +69,26 @@ const StyledComboBox = styled.div<{ width?: number }>`
     }
     &:active {
       background-color: ${({ theme: { fillActive } }): string => fillActive};
+    }
+  }
+  @keyframes menu-open {
+    from {
+      transform: translateY(-100%);
+    }
+    to {
+      transform: translateY(0%);
+    }
+  }
+  @keyframes menu-shadow {
+    0% {
+      box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0.132), 0 0px 0px 0 rgba(0, 0, 0, 0.108);
+    }
+    90% {
+      box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0.132), 0 0px 0px 0 rgba(0, 0, 0, 0.108);
+    }
+    100% {
+      box-shadow: 0 3.2px 7.2px 0 rgba(0, 0, 0, 0.132),
+        0 0.6px 1.8px 0 rgba(0, 0, 0, 0.108);
     }
   }
 `;

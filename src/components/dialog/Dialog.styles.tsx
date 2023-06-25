@@ -5,22 +5,19 @@ const StyledDialog = styled.dialog`
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-
     display: flex;
     flex-direction: column;
-
     border-radius: 4px;
-
     width: 300px;
     height: 200px;
     color: ${({ theme: { textPrimary } }): string => textPrimary};
     border: 1px solid ${({ theme: { stroke } }): string => stroke};
     background-color: ${({ theme: { fill } }): string => fill};
-    animation: modal-load 300ms cubic-bezier(0.2, 0.7, 0, 0.99) forwards;
+    animation: dialog-show 300ms cubic-bezier(0.2, 0.7, 0, 0.99) forwards;
     will-change: opacity, transform;
   }
   &::backdrop {
-    animation: backdrop-load 300ms cubic-bezier(0.2, 0.7, 0, 0.99) forwards;
+    animation: dialog-background 300ms cubic-bezier(0.2, 0.7, 0, 0.99) forwards;
   }
   .dialog-content {
     display: flex;
@@ -39,7 +36,7 @@ const StyledDialog = styled.dialog`
       backgroundSecondary};
   }
 
-  @keyframes backdrop-load {
+  @keyframes dialog-background {
     from {
       background-color: ${({ theme: { smoke } }): string => `${smoke}00`};
     }
@@ -47,7 +44,7 @@ const StyledDialog = styled.dialog`
       background-color: ${({ theme: { smoke } }): string => `${smoke}88`};
     }
   }
-  @keyframes modal-load {
+  @keyframes dialog-show {
     from {
       transform: translate(-50%, -50%) scale(1.1);
       opacity: 0;

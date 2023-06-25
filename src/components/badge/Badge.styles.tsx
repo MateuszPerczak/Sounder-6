@@ -16,9 +16,9 @@ const StyledBadge = styled.span<Pick<BadgeProps, "transition">>`
   border: 1px solid ${({ theme: { stroke } }): string => stroke};
   font-size: 12px;
   animation: ${({ transition }): string =>
-    transition ? "badge-load 300ms cubic-bezier(0.2, 0.7, 0, 0.99) forwards" : "none"};
+    transition ? "badge-show 300ms cubic-bezier(0.2, 0.7, 0, 0.99) forwards" : "none"};
   will-change: opacity, scale;
-  @keyframes badge-load {
+  @keyframes badge-show {
     from {
       opacity: 0;
       scale: 0.98;

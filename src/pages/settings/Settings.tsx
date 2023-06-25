@@ -56,7 +56,7 @@ const Settings = (): JSX.Element => {
               <ComboBox
                 options={themes}
                 selectedOption="system"
-                onChange={(): null => null}
+                onChange={(): void => undefined}
               />
             }
           />
