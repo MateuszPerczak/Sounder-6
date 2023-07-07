@@ -19,7 +19,7 @@ const usePlaylists: UseBoundStore<StoreApi<PlaylistState>> = create<PlaylistStat
     ],
     addPlaylist: (): Playlist["id"] => {
       const date = new Date();
-      const newPlaylist = {
+      const newPlaylist: Playlist = {
         name: "New Playlist",
         icon: Icons.Playlist,
         date: date.toLocaleDateString("pl-PL", {
@@ -30,7 +30,7 @@ const usePlaylists: UseBoundStore<StoreApi<PlaylistState>> = create<PlaylistStat
         id: v4(),
         show: true,
         songs: [],
-      } satisfies Playlist;
+      };
 
       set(({ playlists }) => ({ playlists: [...playlists, newPlaylist] }));
 

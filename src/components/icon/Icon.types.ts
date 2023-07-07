@@ -32,4 +32,5 @@ export enum Icons {
   HardDrive = "\uEDA2",
   Color = "\uE790",
   Info = "\uE946",
+  Path = "\uE62F",
 }

@@ -1,3 +1,5 @@
+import styled from "@emotion/styled";
+
 import Button from "@/components/button/Button";
 import ComboBox from "@/components/comboBox/ComboBox";
 import type { ComboBoxOption } from "@/components/comboBox/ComboBox.types";
@@ -8,11 +10,24 @@ import { useApi } from "@/hooks";
 import useSettings from "@/stores/settings/settings";
 import type { SettingsStore } from "@/stores/settings/settings.types";
 
+const StyledFolder = styled.div`
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  font-size: 12px;
+  font-weight: 300;
+`;
+
 const Settings = (): JSX.Element => {
-  const { settings, setSettings } = useSettings(({ settings, setSettings }) => ({
-    settings,
-    setSettings,
-  }));
+  const { settings, setSettings, addFolders } = useSettings(
+    ({ settings, setSettings, addFolders }) => ({
+      settings,
+      setSettings,
+      addFolders,
+    }),
+  );
 
   const { openFolderPicker } = useApi();
 
@@ -33,7 +48,8 @@ const Settings = (): JSX.Element => {
 
   const openFolder = async (): Promise<void> => {
     const folders = await openFolderPicker();
-    // folders && addFolders(folders);
+    console.log(folders);
+    folders && addFolders(folders);
   };
 
   return (
@@ -41,9 +57,10 @@ const Settings = (): JSX.Element => {
       name="Settings"
       menu={
         <>
-          <Button icon={Icons.Save} label="Save" disabled />
-          {/* <Button icon={Icons.Import} label="Import" /> */}
-          {/* <Button icon={Icons.Refresh} label="Check for updates" /> */}
+          {/* <Button icon={Icons.Save} label="Save" disabled /> */}
+          <Button icon={Icons.Import} label="Import" />
+          <Button icon={Icons.Save} label="Restore defaults" />
+          <Button icon={Icons.Refresh} label="Check for updates" />
         </>
       }
       content={
@@ -69,7 +86,13 @@ const Settings = (): JSX.Element => {
                 <Button icon={Icons.Add} label="Add folder" onClick={openFolder} />
               </>
             }
-          ></Panel>
+          >
+            {settings.folders.map((folder, index) => (
+              <StyledFolder key={index}>
+                <span>{folder}</span>
+              </StyledFolder>
+            ))}
+          </Panel>
         </>
       }
     />
