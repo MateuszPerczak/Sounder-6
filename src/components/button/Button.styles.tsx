@@ -11,6 +11,7 @@ const StyledButton = styled.button`
   border-radius: 4px;
   outline: none;
   font-size: 12px;
+  line-height: 0;
   background-color: ${({ theme: { fill } }): string => fill};
   color: ${({ theme: { textPrimary } }): string => textPrimary};
   border: 1px solid ${({ theme: { stroke } }): string => stroke};

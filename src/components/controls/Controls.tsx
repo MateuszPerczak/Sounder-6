@@ -1,4 +1,4 @@
-import Icon from "../icon/Icon";
+// import Icon from "../icon/Icon";
 import StyledControls from "./Controls.styles";
 
 const Controls = (): JSX.Element => {

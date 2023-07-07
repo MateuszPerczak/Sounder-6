@@ -17,7 +17,11 @@ const Playlist = (): JSX.Element => {
 
   const { getPlaylist } = usePlaylists(({ getPlaylist }) => ({ getPlaylist }));
 
-  const playlist = (id && getPlaylist(id)) || { name: "Playlist not found" };
+  const playlist = (id && getPlaylist(id)) || null;
+
+  if (playlist === null) {
+    return <></>;
+  }
 
   return (
     <Page
@@ -32,7 +36,7 @@ const Playlist = (): JSX.Element => {
             />
           )}
           <Button icon={Icons.Play} />
-          <Badge icon={Icons.Audio} label="84" />
+          <Badge icon={Icons.Audio} label={`${playlist.songs.length}`} />
           <Badge icon={Icons.Clock} label="2h 30m" />
         </>
       }

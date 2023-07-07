@@ -6,8 +6,9 @@ const useSettings: UseBoundStore<StoreApi<SettingsState>> = create<SettingsState
   (set) => ({
     settings: {
       folders: [],
+      theme: "system",
     },
-    setSettings: (settings) => set({ settings }),
+    setSettings: (setting) => set((settings) => ({ ...settings, ...setting })),
     addFolders: (folders): void =>
       set(({ settings }) => ({
         settings: {

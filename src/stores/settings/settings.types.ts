@@ -1,9 +1,10 @@
 export type SettingsState = {
-  settings: Settings;
-  setSettings: (state: Settings) => void;
+  settings: SettingsStore;
+  setSettings: (state: { [T in keyof SettingsStore]?: SettingsStore[T] }) => void;
   addFolders: (folders: string[]) => void;
 };
 
-export type Settings = {
+export type SettingsStore = {
   folders: string[];
+  theme: "dark" | "light" | "system";
 };

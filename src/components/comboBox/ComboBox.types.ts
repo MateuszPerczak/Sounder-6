@@ -1,12 +1,12 @@
-export interface ComboBoxProps {
-  options: ComboBoxOption[];
-  selectedOption: ComboBoxOption["value"];
+export interface ComboBoxProps<T> {
+  options: ComboBoxOption<T>[];
+  selectedOption: ComboBoxOption<T>["value"];
   width?: number;
   disabled?: boolean;
-  onChange: (option: ComboBoxOption["value"]) => void;
+  onChange: (option: ComboBoxOption<T>["value"]) => void;
 }
 
-export type ComboBoxOption = {
+export type ComboBoxOption<T> = {
   name: string;
-  value: string | number | boolean;
+  value: T;
 };

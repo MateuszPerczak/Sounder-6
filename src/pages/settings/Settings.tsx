@@ -1,22 +1,22 @@
-import { useSearchParams } from "react-router-dom";
-
-import Badge from "@/components/badge/Badge";
 import Button from "@/components/button/Button";
 import ComboBox from "@/components/comboBox/ComboBox";
 import type { ComboBoxOption } from "@/components/comboBox/ComboBox.types";
 import { Icons } from "@/components/icon/Icon.types";
 import Page from "@/components/page/Page";
 import Panel from "@/components/panel/Panel";
-import StackPanel from "@/components/stackPanel/StackPanel";
 import { useApi } from "@/hooks";
 import useSettings from "@/stores/settings/settings";
+import type { SettingsStore } from "@/stores/settings/settings.types";
 
 const Settings = (): JSX.Element => {
-  const settings = useSettings(({ settings }) => settings);
+  const { settings, setSettings } = useSettings(({ settings, setSettings }) => ({
+    settings,
+    setSettings,
+  }));
 
   const { openFolderPicker } = useApi();
 
-  const themes: ComboBoxOption[] = [
+  const themes: ComboBoxOption<SettingsStore["theme"]>[] = [
     {
       name: "Light",
       value: "light",
@@ -51,12 +51,12 @@ const Settings = (): JSX.Element => {
           <Panel
             icon={Icons.Color}
             label="Theme"
-            description="Choose app aperance"
+            description="Choose app appearance"
             header={
-              <ComboBox
+              <ComboBox<SettingsStore["theme"]>
                 options={themes}
-                selectedOption="system"
-                onChange={(): void => undefined}
+                selectedOption={settings.theme}
+                onChange={(theme): void => setSettings({ theme })}
               />
             }
           />
@@ -64,7 +64,11 @@ const Settings = (): JSX.Element => {
           <Panel
             icon={Icons.Folder}
             label="Folders"
-            description="Folders description"
+            header={
+              <>
+                <Button icon={Icons.Add} label="Add folder" onClick={openFolder} />
+              </>
+            }
           ></Panel>
         </>
       }

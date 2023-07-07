@@ -35,6 +35,7 @@ module.exports = {
       { fixMixedExportsWithInlineTypeSpecifier: true },
     ],
     "@typescript-eslint/consistent-type-imports": ["error", { fixStyle: "inline-type-imports" }],
+    "@typescript-eslint/no-import-type-side-effects": "error",
     eqeqeq: "error",
   },
   settings: {

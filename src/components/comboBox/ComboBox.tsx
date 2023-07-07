@@ -5,16 +5,16 @@ import { Icons } from "../icon/Icon.types";
 import StyledComboBox from "./ComboBox.styles";
 import type { ComboBoxOption, ComboBoxProps } from "./ComboBox.types";
 
-const ComboBox = ({
+const ComboBox = <T,>({
   options,
   selectedOption,
   disabled,
   width,
   onChange,
-}: ComboBoxProps): JSX.Element => {
+}: ComboBoxProps<T>): JSX.Element => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [internalSelectedOption, setInternalSelectedOption] =
-    useState<ComboBoxOption | null>(
+    useState<ComboBoxOption<T> | null>(
       () => options.find((option) => option.value === selectedOption) ?? null,
     );
   const ref = useRef<HTMLDivElement>(null);
@@ -23,7 +23,7 @@ const ComboBox = ({
     !disabled && setIsOpen((wasOpen): boolean => !wasOpen);
   };
 
-  const selectOption = (option: ComboBoxOption): void => {
+  const selectOption = (option: ComboBoxOption<T>): void => {
     setIsOpen(false);
     setInternalSelectedOption(option);
     typeof onChange === "function" && onChange(option.value);
@@ -31,14 +31,11 @@ const ComboBox = ({
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent): void => {
-      ref.current &&
-        event.target &&
-        !ref.current.contains(event.target as Node) &&
-        setIsOpen(false);
+      !ref.current?.contains(event.target as Node) && setIsOpen(false);
     };
-    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener("click", handleClickOutside);
 
-    return () => document.removeEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("click", handleClickOutside);
   }, []);
 
   return (

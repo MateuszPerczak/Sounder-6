@@ -1,5 +1,7 @@
 import styled from "@emotion/styled";
 
+import StyledButton from "../button/Button.styles";
+
 const StyledPanel = styled.div`
   display: flex;
   flex-direction: column;
@@ -35,6 +37,9 @@ const StyledPanel = styled.div`
   }
   .panel-children > *:not(:last-child) {
     border-bottom: 1px solid ${({ theme: { strokeStrong } }): string => strokeStrong};
+  }
+  ${StyledButton} {
+    height: 33px;
   }
 `;
 
