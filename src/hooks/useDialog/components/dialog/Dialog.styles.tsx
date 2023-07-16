@@ -12,7 +12,7 @@ const StyledDialog = styled.dialog`
     height: 200px;
     color: ${({ theme: { textPrimary } }): string => textPrimary};
     border: 1px solid ${({ theme: { stroke } }): string => stroke};
-    background-color: ${({ theme: { fill } }): string => fill};
+    background-color: ${({ theme: { background } }): string => background};
     animation: dialog-show 300ms cubic-bezier(0.2, 0.7, 0, 0.99) forwards;
     will-change: opacity, transform;
   }
@@ -22,12 +22,18 @@ const StyledDialog = styled.dialog`
   .dialog-content {
     display: flex;
     flex-direction: column;
+    gap: 10px;
     padding: 10px;
     flex: 1;
+    font-size: 14px;
+    h1 {
+      font-size: 18px;
+    }
   }
   .dialog-footer {
     display: flex;
     align-items: center;
+    justify-content: flex-end;
     flex: 0 0 60px;
     gap: 10px;
     padding: 10px;

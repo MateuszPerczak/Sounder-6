@@ -1,11 +1,10 @@
-import { useEffect, useLayoutEffect, useRef } from "react";
+import { useLayoutEffect, useRef } from "react";
 
-import Button from "../button/Button";
-import { Icons } from "../icon/Icon.types";
+import Button from "../../../../components/button/Button";
 import StyledDialog from "./Dialog.styles";
 import type { DialogProps } from "./Dialog.types";
 
-const Dialog = ({ show, children }: DialogProps): JSX.Element => {
+const Dialog = ({ title, show, children, buttons }: DialogProps): JSX.Element => {
   const dialogRef = useRef<HTMLDialogElement>(null);
 
   useLayoutEffect(() => {
@@ -15,10 +14,15 @@ const Dialog = ({ show, children }: DialogProps): JSX.Element => {
 
   return (
     <StyledDialog ref={dialogRef}>
-      <div className="dialog-content">{children}</div>
+      <div className="dialog-content">
+        {title && <h1>{title}</h1>}
+        {children}
+      </div>
       <div className="dialog-footer">
-        <Button icon={Icons.Audio} />
-        <Button icon={Icons.Certificate} />
+        {buttons &&
+          buttons.map((button, index) => (
+            <Button {...button} key={`modal-button-${index}`} />
+          ))}
       </div>
     </StyledDialog>
   );

@@ -2,13 +2,14 @@ import styled from "@emotion/styled";
 
 import Button from "@/components/button/Button";
 import ComboBox from "@/components/comboBox/ComboBox";
-import type { ComboBoxOption } from "@/components/comboBox/ComboBox.types";
 import { Icons } from "@/components/icon/Icon.types";
 import Page from "@/components/page/Page";
 import Panel from "@/components/panel/Panel";
 import { useApi } from "@/hooks";
 import useSettings from "@/stores/settings/settings";
 import type { SettingsStore } from "@/stores/settings/settings.types";
+
+import { themes } from "./Settings.options";
 
 const StyledFolder = styled.div`
   display: flex;
@@ -31,25 +32,14 @@ const Settings = (): JSX.Element => {
 
   const { openFolderPicker } = useApi();
 
-  const themes: ComboBoxOption<SettingsStore["theme"]>[] = [
-    {
-      name: "Light",
-      value: "light",
-    },
-    {
-      name: "Dark",
-      value: "dark",
-    },
-    {
-      name: "System",
-      value: "system",
-    },
-  ];
-
   const openFolder = async (): Promise<void> => {
     const folders = await openFolderPicker();
     console.log(folders);
     folders && addFolders(folders);
+  };
+
+  const restoreDefaults = (): void => {
+    console.log("restoreDefaults");
   };
 
   return (
@@ -59,7 +49,7 @@ const Settings = (): JSX.Element => {
         <>
           {/* <Button icon={Icons.Save} label="Save" disabled /> */}
           <Button icon={Icons.Import} label="Import" />
-          <Button icon={Icons.Save} label="Restore defaults" />
+          <Button icon={Icons.Save} label="Restore defaults" onClick={restoreDefaults} />
           <Button icon={Icons.Refresh} label="Check for updates" />
         </>
       }
@@ -87,6 +77,9 @@ const Settings = (): JSX.Element => {
               </>
             }
           >
+            {settings.folders.length === 0 && (
+              <StyledFolder>Folders will show here!</StyledFolder>
+            )}
             {settings.folders.map((folder, index) => (
               <StyledFolder key={index}>
                 <span>{folder}</span>
