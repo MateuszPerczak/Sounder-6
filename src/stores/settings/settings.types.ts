@@ -6,5 +6,6 @@ export type SettingsState = {
 
 export type SettingsStore = {
   folders: string[];
+  isScanRecursive: boolean;
   theme: "dark" | "light" | "system";
 };
