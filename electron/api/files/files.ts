@@ -20,7 +20,7 @@ export const scanFolders = async ({
 
   if (extensions) {
     files = files.filter((file) =>
-      extensions.some((extension) => file.endsWith(extension)),
+      extensions.some((extension) => file.endsWith(`.${extension}`)),
     );
   }
 
@@ -31,15 +31,18 @@ const scanFolder = async ({
   path,
   recursive,
 }: ScanFolderProps): Promise<FilesAndFolders> => {
-  const dirents = await readdir(path, { recursive, withFileTypes: true });
-
   const files: string[] = [];
   const folders: string[] = [];
 
-  for (const dirent of dirents) {
-    const resolvedPath = resolve(path, dirent.name);
-    dirent.isDirectory() && folders.push(resolvedPath);
-    dirent.isFile() && files.push(resolvedPath);
+  try {
+    const dirents = await readdir(path, { recursive, withFileTypes: true });
+    for (const dirent of dirents) {
+      const resolvedPath = resolve(path, dirent.name);
+      dirent.isDirectory() && folders.push(resolvedPath);
+      dirent.isFile() && files.push(resolvedPath);
+    }
+  } catch (error) {
+    //
   }
 
   return { files, folders };

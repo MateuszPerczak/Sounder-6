@@ -4,6 +4,7 @@ import { join } from "node:path";
 
 import { app, BrowserWindow, dialog, ipcMain, Menu } from "electron";
 
+import { getSongMetadata } from "../api/audio/audio";
 import { scanFolders } from "../api/files/files";
 import { type AppContent, Environment } from "./main.types";
 
@@ -78,8 +79,11 @@ const initApi = (): void => {
     return scanFolders({
       paths: paths,
       recursive: true,
+      extensions: ["mp3", "ogg", "flac", "wav"],
     });
   });
+
+  ipcMain.handle("get-song-metadata", async (_, path: string) => getSongMetadata(path));
 
   // ipcMain.handle("open-file-picker", async () => {
   //   const { canceled, filePaths } = await dialog.showOpenDialog({

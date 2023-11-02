@@ -4,7 +4,7 @@ export type ScanFoldersProps = {
   extensions?: Extension[];
 };
 
-export type Extension = ".mp3" | ".ogg" | ".flac" | ".wav";
+export type Extension = "mp3" | "ogg" | "flac" | "wav";
 
 export type ScanFolderProps = {
   path: string;
