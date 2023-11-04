@@ -5,21 +5,31 @@ interface Window {
     openFilePicker: () => Promise<Uint8Array | undefined>;
     scanFolders: (folders: string[]) => Promise<{ folders: string[]; files: string[] }>;
     getSongMetadata: (path: string) => Promise<{
-      year?: number;
-      title?: string;
+      title: string;
       artist?: string;
       artists?: string[];
       album?: string;
-      date?: string;
+      year?: number;
       genre?: string[];
-      picture?: {
-        format: string;
+      bitrate?: number;
+      sampleRate?: number;
+      duration?: number;
+      lossless?: boolean;
+      container?: string;
+      cover?: {
         data: Buffer;
-        description?: string;
-        type?: string;
-        name?: string;
-      }[];
-      bpm?: number;
+        format: string;
+      };
     }>;
+    getSongBytes: (path: string) => Promise<
+      | {
+          status: "ok";
+          buffer: ArrayBuffer;
+          byteLength: number;
+        }
+      | {
+          status: "err";
+        }
+    >;
   };
 }

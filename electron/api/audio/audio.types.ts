@@ -17,3 +17,13 @@ export type SongCover = {
   data: Buffer;
   format: string;
 };
+
+export type SongBytes =
+  | {
+      status: "ok";
+      buffer: ArrayBuffer;
+      byteLength: number;
+    }
+  | {
+      status: "err";
+    };

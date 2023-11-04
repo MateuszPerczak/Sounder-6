@@ -1,7 +1,8 @@
+import { readFile } from "fs/promises";
 import { type IPicture, parseFile, selectCover } from "music-metadata";
 import { parse } from "path";
 
-import type { SongCover, SongMetadata } from "./audio.types";
+import type { SongBytes, SongCover, SongMetadata } from "./audio.types";
 
 export const getSongCover = (picture: IPicture[] | undefined): SongCover | undefined => {
   const cover = selectCover(picture);
@@ -35,4 +36,13 @@ export const getSongMetadata = async (path: string): Promise<SongMetadata> => {
     container,
     cover,
   };
+};
+
+export const getSongBytes = async (path: string): Promise<SongBytes> => {
+  try {
+    const { buffer, byteLength } = await readFile(path);
+    return { buffer, byteLength, status: "ok" };
+  } catch (err) {
+    return { status: "err" };
+  }
 };
