@@ -3,8 +3,8 @@ import "v8-compile-cache";
 import { join } from "node:path";
 
 import { app, BrowserWindow, dialog, ipcMain, Menu } from "electron";
-import { readFileSync } from "fs";
 
+import { scanFolders } from "../audio/audio";
 import { type AppContent, Environment } from "./main.types";
 
 process.env.DIST_ELECTRON = join(__dirname, "..");
@@ -72,6 +72,14 @@ const initApi = (): void => {
     });
     if (canceled) return;
     return filePaths;
+  });
+
+  ipcMain.handle("scan-folders", async (_, folders: string[]) => {
+    return scanFolders({
+      folders,
+      extensions: ["mp3", "ogg", "flac", "wav"],
+      recursive: true,
+    });
   });
 
   // ipcMain.handle("open-file-picker", async () => {

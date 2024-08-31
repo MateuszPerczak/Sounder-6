@@ -7,8 +7,10 @@ const useSettings: UseBoundStore<StoreApi<SettingsState>> = create<SettingsState
     settings: {
       folders: [],
       theme: "system",
+      isScanRecursive: true,
     },
-    setSettings: (setting) => set((settings) => ({ ...settings, ...setting })),
+    setSettings: (newSettings): void =>
+      set(({ settings }) => ({ settings: { ...settings, ...newSettings } })),
     addFolders: (folders): void =>
       set(({ settings }) => ({
         settings: {

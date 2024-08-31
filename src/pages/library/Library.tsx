@@ -1,25 +1,20 @@
-import styled from "@emotion/styled";
+import { useState } from "react";
 import { useSearchParams } from "react-router-dom";
 
 import Badge from "@/components/badge/Badge";
 import Button from "@/components/button/Button";
 import { Icons } from "@/components/icon/Icon.types";
 import Page from "@/components/page/Page";
+import { useApi } from "@/hooks";
 
 import StyledLibrary from "./Library.styles";
 
-const Song = styled.div`
-  display: flex;
-  align-items: center;
-  padding: 0 5px;
-  flex: 0 0 50px;
-  border-radius: 4px;
-  background-color: ${({ theme: { backgroundLayer } }): string => backgroundLayer};
-  border: 1px solid ${({ theme: { strokeStrong } }): string => strokeStrong};
-`;
-
 const Library = (): JSX.Element => {
   const [params] = useSearchParams();
+
+  const [audio, setAudio] = useState<HTMLAudioElement | null>(null);
+
+  const { scanFolders, openFolderPicker } = useApi();
 
   // const openFile = async (): Promise<void> => {
   //   const files = (await window.api.openFilePicker()) as Uint8Array;
@@ -34,6 +29,27 @@ const Library = (): JSX.Element => {
 
   //   console.log(files);
   // };
+
+  const openFile = async (): Promise<void> => {
+    const folders = await openFolderPicker();
+
+    if (folders === undefined) {
+      return;
+    }
+    const files = await scanFolders(folders);
+    // const buffer = await openFilePicker();
+
+    // if (buffer === undefined) {
+    //   return;
+    // }
+
+    // const blob = new Blob([buffer], { type: "audio/wav" });
+    // const url = window.URL.createObjectURL(blob);
+
+    // setAudio(new Audio(url));
+
+    console.log(files);
+  };
 
   const search = params.get("search");
 
@@ -50,7 +66,7 @@ const Library = (): JSX.Element => {
                 transition
               />
             )}
-            <Button icon={Icons.Play} />
+            <Button icon={Icons.Play} onClick={openFile} />
             <Badge icon={Icons.Audio} label="84" />
             <Badge icon={Icons.Clock} label="2h 30m" />
           </>
@@ -58,9 +74,9 @@ const Library = (): JSX.Element => {
         content={
           <>
             <StyledLibrary>
-              {Array.from({ length: 10 }, (_, index) => (
-                <Song key={index}></Song>
-              ))}
+              {/* {Array.from({ length: 20 }, (_, index) => index).map((element) => (
+                <Song key={element} />
+              ))} */}
             </StyledLibrary>
           </>
         }

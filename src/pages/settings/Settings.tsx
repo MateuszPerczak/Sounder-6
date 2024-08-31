@@ -1,10 +1,12 @@
 import styled from "@emotion/styled";
 
 import Button from "@/components/button/Button";
+import CheckBox from "@/components/checkBox/CheckBox";
 import ComboBox from "@/components/comboBox/ComboBox";
 import { Icons } from "@/components/icon/Icon.types";
 import Page from "@/components/page/Page";
 import Panel from "@/components/panel/Panel";
+import StackPanel from "@/components/stackPanel/StackPanel";
 import { useApi } from "@/hooks";
 import useSettings from "@/stores/settings/settings";
 import type { SettingsStore } from "@/stores/settings/settings.types";
@@ -68,23 +70,22 @@ const Settings = (): JSX.Element => {
             }
           />
 
-          <Panel
-            icon={Icons.Folder}
-            label="Folders"
-            header={
-              <>
-                <Button icon={Icons.Add} label="Add folder" onClick={openFolder} />
-              </>
-            }
-          >
-            {settings.folders.length === 0 && (
-              <StyledFolder>Folders will show here!</StyledFolder>
-            )}
-            {settings.folders.map((folder, index) => (
-              <StyledFolder key={index}>
-                <span>{folder}</span>
-              </StyledFolder>
-            ))}
+          <Panel icon={Icons.Folder} label="Folders">
+            <StackPanel padding={10} flexDirection="column">
+              <CheckBox
+                label="Scan folders recursively"
+                checked={settings.isScanRecursive}
+                onChange={(isScanRecursive): void => setSettings({ isScanRecursive })}
+              />
+            </StackPanel>
+          </Panel>
+
+          <Panel icon={Icons.Library} label="Library">
+            <StackPanel padding={10} flexDirection="column"></StackPanel>
+          </Panel>
+
+          <Panel icon={Icons.Info} label="About">
+            <StackPanel padding={10} flexDirection="column"></StackPanel>
           </Panel>
         </>
       }
