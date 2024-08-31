@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useSearchParams } from "react-router-dom";
+import { v4 } from "uuid";
 
 import Badge from "@/components/badge/Badge";
 import Button from "@/components/button/Button";
@@ -11,6 +12,8 @@ import StyledLibrary from "./Library.styles";
 
 const Library = (): JSX.Element => {
   const [params] = useSearchParams();
+  const [songs, setSongs] = useState<SongProps[]>([]);
+  const { scanFolders, openFolderPicker, getSongMetadata, getSongBytes } = useApi();
 
   const [audio, setAudio] = useState<HTMLAudioElement | null>(null);
 
@@ -20,15 +23,46 @@ const Library = (): JSX.Element => {
   //   const files = (await window.api.openFilePicker()) as Uint8Array;
   //   if (!files) return;
 
-  //   const blob = new Blob([files], { type: "audio/wav" });
-  //   const url = window.URL.createObjectURL(blob);
-  //   console.log(url);
-  //   setSrc(url);
-  //   // const test = new Audio(url);
-  //   // setAudio(test);
+    if (folders === undefined) {
+      return;
+    }
+    const { files } = await scanFolders(folders);
 
-  //   console.log(files);
-  // };
+    const getCover = (
+      picture: Awaited<ReturnType<typeof getSongMetadata>>["cover"],
+    ): string | undefined => {
+      if (picture === undefined) {
+        return;
+      }
+      const resource = URL.createObjectURL(
+        new Blob([picture.data], { type: picture.format }),
+      );
+      return resource;
+    };
+
+    files.forEach(async (file) => {
+      const { title, album, artist, cover } = await getSongMetadata(file);
+      const song = await getSongBytes(file);
+      if (song.status === "ok") {
+        const { buffer } = song;
+        const blob = new Blob([buffer], { type: "audio/wav" });
+        const url = window.URL.createObjectURL(blob);
+
+        const test = new Audio(url);
+        test.play();
+      }
+      setSongs((prevSongs) => [
+        ...prevSongs,
+        {
+          id: v4(),
+          album,
+          artist,
+          cover: getCover(cover),
+          title: title ?? file,
+        },
+      ]);
+    });
+  };
 
   const openFile = async (): Promise<void> => {
     const folders = await openFolderPicker();

@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import Icon from "../icon/Icon";
 import { Icons } from "../icon/Icon.types";
-import StyledCheckBox from "./CheckBox.styles";
+import StyledCheckBox, { StyledLabel } from "./CheckBox.styles";
 import type { CheckBoxProps } from "./CheckBox.types";
 
 const CheckBox = ({ label, checked, disabled, onChange }: CheckBoxProps): JSX.Element => {
@@ -23,7 +23,11 @@ const CheckBox = ({ label, checked, disabled, onChange }: CheckBoxProps): JSX.El
       <button onClick={toggleChecked} disabled={disabled}>
         {isChecked && <Icon icon={Icons.CheckMark} size={14} />}
       </button>
-      {label && <span onClick={toggleChecked}>{label}</span>}
+      {label && (
+        <StyledLabel disabled={disabled} onClick={toggleChecked}>
+          {label}
+        </StyledLabel>
+      )}
     </StyledCheckBox>
   );
 };

@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 
 const StyledComboBox = styled.div<{ width?: number }>`
   display: flex;
-  flex: ${({ width }): string => (width ? `1 0 ${width}px;` : "1 0 150px")};
+  flex: ${({ width }): string => (width ? `0 0 ${width}px;` : "1 0 150px")};
   position: relative;
   .combobox-button {
     display: inline-flex;

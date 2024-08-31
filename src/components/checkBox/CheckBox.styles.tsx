@@ -35,4 +35,9 @@ const StyledCheckBox = styled.div`
   }
 `;
 
+export const StyledLabel = styled.span<{ disabled?: boolean }>`
+  color: ${({ theme: { textPrimary, textDisabled }, disabled }): string =>
+    disabled ? textDisabled : textPrimary};
+`;
+
 export default StyledCheckBox;

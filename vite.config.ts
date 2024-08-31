@@ -30,6 +30,9 @@ export default defineConfig(() => {
       electron({
         include: ["electron"],
         plugins: [loadViteEnv()],
+        transformOptions: {
+          minify: true,
+        },
       }),
       eslintPlugin(),
     ],
